@@ -7,7 +7,7 @@
     tools:context="com.sixelasavir.www.boombiblico.QuestionActivity">
 
     <!--android:layout_centerVertical="true"-->
-    <android.support.v7.widget.CardView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
@@ -15,29 +15,30 @@
         android:layout_marginRight="10dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        android:id="@+id/question_card_view">
+        android:id="@+id/question_card_view"
+        android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <LinearLayout
-                android:layout_width="match_parent"
+            <RelativeLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    app:srcCompat="@mipmap/ic_timer"
+                    android:id="@+id/ic_timer"
+                    android:layout_toLeftOf="@+id/timer_record_init"
+                    android:layout_toStartOf="@+id/timer_record_init" />
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/title_timer_record_init"
-                    android:textColor="@color/colorBaseNegative"/>
-                <TextView
-                    android:layout_marginLeft="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/timer_record_init"
                     android:textColor="@color/colorBaseNegative"
-                    android:id="@+id/timer_record_init"/>
-            </LinearLayout>
+                    android:id="@+id/timer_record_init"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"/>
+            </RelativeLayout>
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
@@ -54,109 +55,97 @@
                     android:textColor="@color/colorBaseNegative"/>
             </RelativeLayout>
 
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <LinearLayout
+                <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:orientation="horizontal"
-                    android:weightSum="2">
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_marginBottom="15dp"
+                    app:cardBackgroundColor="@color/colorAccent"
+                    android:id="@+id/option_a_linear_layout"
+                    app:cardCornerRadius="10dp">
+                    <TextView
+                        android:text="A"
+                        android:id="@+id/option_a_text_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:gravity="center"/>
+                </android.support.v7.widget.CardView>
 
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:layout_marginRight="2dp"
-                        android:layout_marginLeft="2dp"
-                        android:layout_marginTop="2dp"
-                        android:layout_marginBottom="2dp"
-                        android:background="@color/colorAccent"
-                        android:id="@+id/option_a_linear_layout">
-                        <TextView
-                            android:text="A"
-                            android:id="@+id/option_a_text_view"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="5dp"
-                            android:layout_marginRight="5dp"
-                            android:gravity="center"/>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:layout_marginRight="2dp"
-                        android:layout_marginLeft="2dp"
-                        android:layout_marginTop="2dp"
-                        android:layout_marginBottom="2dp"
-                        android:background="@color/colorAccent"
-                        android:id="@+id/option_b_linear_layout">
-                        <TextView
-                            android:text="B"
-                            android:id="@+id/option_b_text_view"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="5dp"
-                            android:layout_marginRight="5dp"
-                            android:gravity="center"/>
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
+                <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:orientation="horizontal"
-                    android:weightSum="2">
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="15dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    app:cardBackgroundColor="@color/colorAccent"
+                    android:id="@+id/option_b_linear_layout"
+                    app:cardCornerRadius="6dp">
+                    <TextView
+                        android:text="B"
+                        android:id="@+id/option_b_text_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:gravity="center"/>
+                </android.support.v7.widget.CardView>
 
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:layout_marginRight="2dp"
-                        android:layout_marginLeft="2dp"
-                        android:layout_marginTop="2dp"
-                        android:layout_marginBottom="2dp"
-                        android:background="@color/colorAccent"
-                        android:id="@+id/option_c_linear_layout">
-                        <TextView
-                            android:text="C"
-                            android:id="@+id/option_c_text_view"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="5dp"
-                            android:layout_marginRight="5dp"
-                            android:gravity="center"/>
-                    </LinearLayout>
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="15dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    app:cardBackgroundColor="@color/colorAccent"
+                    android:id="@+id/option_c_linear_layout"
+                    app:cardCornerRadius="6dp">
+                    <TextView
+                        android:text="C"
+                        android:id="@+id/option_c_text_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:gravity="center"/>
+                </android.support.v7.widget.CardView>
 
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:layout_marginRight="2dp"
-                        android:layout_marginLeft="2dp"
-                        android:layout_marginTop="2dp"
-                        android:layout_marginBottom="2dp"
-                        android:background="@color/colorAccent"
-                        android:id="@+id/option_d_linear_layout">
-                        <TextView
-                            android:text="D"
-                            android:id="@+id/option_d_text_view"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="5dp"
-                            android:layout_marginRight="5dp"
-                            android:gravity="center"/>
-                    </LinearLayout>
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="15dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    app:cardBackgroundColor="@color/colorAccent"
+                    android:id="@+id/option_d_linear_layout"
+                    app:cardCornerRadius="6dp">
 
-                </LinearLayout>
+                    <TextView
+                        android:text="D"
+                        android:id="@+id/option_d_text_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:gravity="center"/>
+                </android.support.v7.widget.CardView>
+
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/all_button_linear_layout"
@@ -190,8 +179,7 @@
                     android:background="@color/cardview_light_background"/>
 
             </LinearLayout>
-        </LinearLayout>
-    </android.support.v7.widget.CardView>
+    </LinearLayout>
 
     <android.support.v7.widget.CardView
         android:id="@+id/value_card_view"

@@ -53,13 +53,7 @@ public class LevelAdapter extends BaseAdapter {
             R.drawable.im_uno,
             R.drawable.im_dos,
             R.drawable.im_tres,
-            R.drawable.im_cuatro,
-            R.drawable.im_cinco,
-            R.drawable.im_seis,
-            R.drawable.im_siete,
-            R.drawable.im_ocho,
-            R.drawable.im_nueve,
-            R.drawable.im_diez
+            R.drawable.im_cuatro
     };
 
 }

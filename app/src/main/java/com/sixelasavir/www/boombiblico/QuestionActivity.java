@@ -49,7 +49,7 @@ public class QuestionActivity extends AppCompatActivity {
     private MediaPlayer mPlayerIncorrect;
 
     private CardView valueCardView;
-    private CardView questionCardView;
+    private LinearLayout questionCardView;
     private TextView valueTextView;
     private TextView questionTextView;
     private TextView optionATextView;
@@ -59,10 +59,10 @@ public class QuestionActivity extends AppCompatActivity {
     private TextView timerRecordInit;
 
 
-    private LinearLayout optionALinearLayout;
-    private LinearLayout optionBLinearLayout;
-    private LinearLayout optionCLinearLayout;
-    private LinearLayout optionDLinearLayout;
+    private CardView optionALinearLayout;
+    private CardView optionBLinearLayout;
+    private CardView optionCLinearLayout;
+    private CardView optionDLinearLayout;
 
 
     private Button afterButton;
@@ -137,7 +137,7 @@ public class QuestionActivity extends AppCompatActivity {
     public void loadResources() {
         valueCardView = (CardView) findViewById(R.id.value_card_view);
         valueTextView = (TextView) findViewById(R.id.value_text_view);
-        questionCardView = (CardView) findViewById(R.id.question_card_view);
+        questionCardView = (LinearLayout) findViewById(R.id.question_card_view);
         questionTextView = (TextView) findViewById(R.id.question_text_view);
         afterButton = (Button) findViewById(R.id.after_button);
         pauseButton = (Button) findViewById(R.id.pause_button);
@@ -229,7 +229,7 @@ public class QuestionActivity extends AppCompatActivity {
         optionCTextView = (TextView) findViewById(R.id.option_c_text_view);
         optionDTextView = (TextView) findViewById(R.id.option_d_text_view);
 
-        optionALinearLayout = (LinearLayout) findViewById(R.id.option_a_linear_layout);
+        optionALinearLayout = (CardView) findViewById(R.id.option_a_linear_layout);
         optionALinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -240,7 +240,7 @@ public class QuestionActivity extends AppCompatActivity {
                 answ = Data.ANSWER_A;
             }
         });
-        optionBLinearLayout = (LinearLayout) findViewById(R.id.option_b_linear_layout);
+        optionBLinearLayout = (CardView) findViewById(R.id.option_b_linear_layout);
         optionBLinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -251,7 +251,7 @@ public class QuestionActivity extends AppCompatActivity {
                 answ = Data.ANSWER_B;
             }
         });
-        optionCLinearLayout = (LinearLayout) findViewById(R.id.option_c_linear_layout);
+        optionCLinearLayout = (CardView) findViewById(R.id.option_c_linear_layout);
         optionCLinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -262,7 +262,7 @@ public class QuestionActivity extends AppCompatActivity {
                 answ = Data.ANSWER_C;
             }
         });
-        optionDLinearLayout = (LinearLayout) findViewById(R.id.option_d_linear_layout);
+        optionDLinearLayout = (CardView) findViewById(R.id.option_d_linear_layout);
         optionDLinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -282,10 +282,10 @@ public class QuestionActivity extends AppCompatActivity {
             int i = answeredQuestions();
             answPosition = i;
             questionTextView.setText(questions.get(i).getQuestion());
-            optionATextView.setText("A: ".concat(questions.get(i).getOptionA()));
-            optionBTextView.setText("B: ".concat(questions.get(i).getOptionB()));
-            optionCTextView.setText("C: ".concat(questions.get(i).getOptionC()));
-            optionDTextView.setText("D: ".concat(questions.get(i).getOptionD()));
+            optionATextView.setText(questions.get(i).getOptionA());
+            optionBTextView.setText(questions.get(i).getOptionB());
+            optionCTextView.setText(questions.get(i).getOptionC());
+            optionDTextView.setText(questions.get(i).getOptionD());
 
             optionALinearLayout.setBackgroundColor(getResources().getColor(R.color.colorAccent));
             optionBLinearLayout.setBackgroundColor(getResources().getColor(R.color.colorAccent));

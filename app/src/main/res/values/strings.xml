@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">Conexión Biblica 2017</string>
+    <string name="app_name_short">Conexión Biblica</string>
+
+    <string name="title_level_activity">Selecciona el nivel</string>
+    <string name="title_modal_participation">Participa con:</string>
+
+    <string name="go">Listo..!</string>
+    <string name="end_play">Fin..!</string>
+
+    <string name="save_record">Guardar</string>
+    <string name="next_play">Jugar</string>
+    <string name="exit_play">Salir</string>
+
+    <string name="title_record">Respuestas Correctas</string>
+    <string name="title_time_record">Duración</string>
+
+
+    <string name="timer_record_init">00:00:00</string>
+    <string name="title_timer_record_init">Tiempo:</string>
+
+    <string name="title_dialog_pause">Advertencia</string>
+    <string name="questions_pause_play">"¿Salir del Juego?</string>
+    <string name="pause_yes">Si</string>
+    <string name="pause_no">No</string>
+
+    <string name="title_dialog_record_save">Advertencia</string>
+    <string name="questions_record_save">¿Desea Guardar el Récord?</string>
+    <string name="record_save_yes">Si</string>
+    <string name="record_save_no">No</string>
+    <string name="name_record_text_view">Nombre:</string>
+
+
+</resources>

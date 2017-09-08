@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="level_type">
+        <!--item>Básico</item>
+        <item>Medio</item>
+        <item>Avanzado</item-->
+        <item>5 Preguntas</item>
+        <item>10 Preguntas</item>
+        <item>15 Preguntas</item>
+    </array>
+
+</resources>

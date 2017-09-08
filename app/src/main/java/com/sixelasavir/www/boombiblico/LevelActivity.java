@@ -55,6 +55,7 @@ public class LevelActivity extends AppCompatActivity {
                         intentQuestion.putExtra(NUMBER_LEVEL, level);
                         intentQuestion.putExtra(NUMBER_OF_QUESTIONS, which);
                         startActivity(intentQuestion);
+                        finish();
                     }
                 });
         return builder.create();

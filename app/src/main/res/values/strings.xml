@@ -30,5 +30,7 @@
     <string name="record_save_no">No</string>
     <string name="name_record_text_view">Nombre:</string>
 
+    <string name="save_toast">Guardado</string>
+
 
 </resources>

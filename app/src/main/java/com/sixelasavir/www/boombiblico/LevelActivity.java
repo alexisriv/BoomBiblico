@@ -17,6 +17,7 @@ public class LevelActivity extends AppCompatActivity {
 
     private GridView levelGridView;
     private Intent intent;
+    private static final boolean  activeDialog = false;
 
     public static final String NUMBER_LEVEL = "number.level";
     public static final String NUMBER_OF_QUESTIONS = "number.of.questions";
@@ -33,8 +34,16 @@ public class LevelActivity extends AppCompatActivity {
         levelGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                onCreateDialog(position).show();
+                if(activeDialog)
+                    onCreateDialog(position).show();
+                else{
+                    intentQuestion = new Intent(LevelActivity.this,QuestionActivity.class);
+                    intentQuestion.putExtra(MenuActivity.TYPE, intent.getStringExtra(MenuActivity.TYPE));
+                    intentQuestion.putExtra(NUMBER_LEVEL, position);
+                    intentQuestion.putExtra(NUMBER_OF_QUESTIONS, 1);
+                    startActivity(intentQuestion);
+                    LevelActivity.this.finish();
+                }
             }
         });
     }

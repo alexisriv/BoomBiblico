@@ -1,6 +1,5 @@
 package com.sixelasavir.www.boombiblico;
 
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -10,10 +9,19 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
+import com.sixelasavir.www.boombiblico.greendao.model.DaoSession;
+import com.sixelasavir.www.boombiblico.greendao.model.GamerRecord;
+import com.sixelasavir.www.boombiblico.greendao.model.GamerRecordDao;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class ListRecordActivity extends AppCompatActivity implements TabLayout.OnTabSelectedListener, ListRecordFragment.OnFragmentInteractionListener {
 
     TabLayout tabLayout;
     ViewPager viewPager;
+    private DaoSession daoSession;
+    GamerRecordDao gamerRecordDao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +29,9 @@ public class ListRecordActivity extends AppCompatActivity implements TabLayout.O
         setContentView(R.layout.activity_list_record);
         Toolbar toolbar = (Toolbar) findViewById(R.id.list_record_toolbar);
         setSupportActionBar(toolbar);
+
+        daoSession = ((AppBoomBiblico) getApplication()).getDaoSession();
+        gamerRecordDao = daoSession.getGamerRecordDao();
 
         tabLayout = (TabLayout) findViewById(R.id.club_tab_layout);
         viewPager = (ViewPager) findViewById(R.id.list_record_view_pager);
@@ -34,7 +45,6 @@ public class ListRecordActivity extends AppCompatActivity implements TabLayout.O
         viewPager.setAdapter(adapter);
 
         tabLayout.setOnTabSelectedListener(this);
-
 
     }
 
@@ -53,11 +63,6 @@ public class ListRecordActivity extends AppCompatActivity implements TabLayout.O
 
     }
 
-    @Override
-    public void onFragmentInteraction(Uri uri) {
-
-    }
-
     public class Pager extends FragmentStatePagerAdapter {
 
         private int tabCount;
@@ -72,13 +77,16 @@ public class ListRecordActivity extends AppCompatActivity implements TabLayout.O
             ListRecordFragment listRecordFragment;
             switch (position) {
                 case 0:
-                    listRecordFragment = ListRecordFragment.newInstance(getResources().getString(R.string.name_aventureros),"1");
+                    List<GamerRecord> gamerRecordsAventureros = gamerRecordDao.queryBuilder().where(GamerRecordDao.Properties.Type.eq(MenuActivity.TYPE_PLAYER_AVENTURERO)).orderAsc(GamerRecordDao.Properties.RecordGamer).list();
+                    listRecordFragment = ListRecordFragment.newInstance(gamerRecordsAventureros);
                     return listRecordFragment;
                 case 1:
-                    listRecordFragment = ListRecordFragment.newInstance(getResources().getString(R.string.name_aventureros),"2");
+                    List<GamerRecord> gamerRecordsConquistadores = gamerRecordDao.queryBuilder().where(GamerRecordDao.Properties.Type.eq(MenuActivity.TYPE_PLAYER_CONQUISTADOR)).orderAsc(GamerRecordDao.Properties.RecordGamer).list();
+                    listRecordFragment = ListRecordFragment.newInstance(gamerRecordsConquistadores);
                     return listRecordFragment;
                 case 2:
-                    listRecordFragment = ListRecordFragment.newInstance(getResources().getString(R.string.name_aventureros),"3");
+                    List<GamerRecord> gamerRecordsGuiasMayores = gamerRecordDao.queryBuilder().where(GamerRecordDao.Properties.Type.eq(MenuActivity.TYPE_PLAYER_GUIA_MAYOR)).orderAsc(GamerRecordDao.Properties.RecordGamer).list();
+                    listRecordFragment = ListRecordFragment.newInstance(gamerRecordsGuiasMayores);
                     return listRecordFragment;
                 default:
                     return null;

@@ -22,71 +22,26 @@ public class Data {
         switch(level){
             case 0:
                 //LEVEL 1 AVENTUREROS
-                questions.add(new Question("¿Pregunta 1?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_A));
-                questions.add(new Question("¿Pregunta 2?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_B));
-                questions.add(new Question("¿Pregunta 3?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_C));
-                questions.add(new Question("¿Pregunta 4?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_D));
-                questions.add(new Question("¿Pregunta 5?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_A));
-                questions.add(new Question("¿Pregunta 6?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_B));
-                questions.add(new Question("¿Pregunta 7?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_C));
-                questions.add(new Question("¿Pregunta 8?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_D));
-                questions.add(new Question("¿Pregunta 9?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_A));
-                questions.add(new Question("¿Pregunta 10?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_B));
-                questions.add(new Question("¿Pregunta 11?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_C));
-                questions.add(new Question("¿Pregunta 12?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_D));
-                questions.add(new Question("¿Pregunta 13?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_A));
-                questions.add(new Question("¿Pregunta 14?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_B));
-                questions.add(new Question("¿Pregunta 15?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_C));
-                questions.add(new Question("¿Pregunta 16?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_D));
-                questions.add(new Question("¿Pregunta 17?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_A));
-                questions.add(new Question("¿Pregunta 18?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_B));
-                questions.add(new Question("¿Pregunta 19?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_C));
-                questions.add(new Question("¿Pregunta 20?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_D));
+                questions.add(new Question("¿Quién sitió la ciudad de Jerusalén?","Ciro","Aspenaz","Nabucodonosor","Artajerjes",ANSWER_C));
+                questions.add(new Question("¿Quien tenia tres años de reinado cuando Jerusalen fue sitiada?","Jonás","Joacim","Manases","Saúl",ANSWER_B));
+                questions.add(new Question("¿Cuántos años iban a ser educados los jóvenes traídos de Jerusalén?","Cinco años","Siete años","Trece años","Tres años",ANSWER_D));
+                questions.add(new Question("¿Cómo se llamaba el jefe de los eunucos?","Aspenaz","Azarías","Artajerjes","Abdías",ANSWER_A));
+                questions.add(new Question("¿Cuál fue el nombre que Aspenaz colocó a Daniel?","Benjamín","Ben-Adad","Bendición","Beltsasar",ANSWER_D));
                 break;
             case 1:
                 //LEVEL 2 AVENTUREROS
-                questions.add(new Question("¿Pregunta 1?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_A));
-                questions.add(new Question("¿Pregunta 2?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_B));
-                questions.add(new Question("¿Pregunta 3?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_C));
-                questions.add(new Question("¿Pregunta 4?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_D));
-                questions.add(new Question("¿Pregunta 5?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_A));
-                questions.add(new Question("¿Pregunta 6?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_B));
-                questions.add(new Question("¿Pregunta 7?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_C));
-                questions.add(new Question("¿Pregunta 8?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_D));
-                questions.add(new Question("¿Pregunta 9?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_A));
-                questions.add(new Question("¿Pregunta 10?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_B));
-                questions.add(new Question("¿Pregunta 11?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_C));
-                questions.add(new Question("¿Pregunta 12?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_D));
-                questions.add(new Question("¿Pregunta 13?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_A));
-                questions.add(new Question("¿Pregunta 14?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_B));
-                questions.add(new Question("¿Pregunta 15?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_C));
-                questions.add(new Question("¿Pregunta 16?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_D));
-                questions.add(new Question("¿Pregunta 17?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_A));
-                questions.add(new Question("¿Pregunta 18?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_B));
-                questions.add(new Question("¿Pregunta 19?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_C));
-                questions.add(new Question("¿Pregunta 20?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_D));
+                questions.add(new Question("¿Cómo fue llamado Ananías?","Samuel","Zabulón","Sadrac","Sansón",ANSWER_C));
+                questions.add(new Question("El nombre de Misael fue cambiado a…","Meza","Mesac","Quelión","	Quemuel",ANSWER_B));
+                questions.add(new Question("¿Cómo llamó Aspenaz a Azarías?","Artajerjes","Abraham","Absalón","Abednego",ANSWER_D));
+                questions.add(new Question("¿Con que propuso Daniel en su corazón NO contaminarse?","Con la comida y vino del rey","Con los jugos fermentados del rey","Con toda la mesa del rey","Con las carnes del rey",ANSWER_A));
+                questions.add(new Question("¿Cuántos días pidió Daniel al guarda que lo probase a él y sus amigos?","Siete días","Diez días","Trece días","Tres días",ANSWER_B));
                 break;
             case 2:
-                questions.add(new Question("¿Pregunta 1?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_A));
-                questions.add(new Question("¿Pregunta 2?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_B));
-                questions.add(new Question("¿Pregunta 3?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_C));
-                questions.add(new Question("¿Pregunta 4?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_D));
-                questions.add(new Question("¿Pregunta 5?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_A));
-                questions.add(new Question("¿Pregunta 6?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_B));
-                questions.add(new Question("¿Pregunta 7?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_C));
-                questions.add(new Question("¿Pregunta 8?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_D));
-                questions.add(new Question("¿Pregunta 9?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_A));
-                questions.add(new Question("¿Pregunta 10?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_B));
-                questions.add(new Question("¿Pregunta 11?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_C));
-                questions.add(new Question("¿Pregunta 12?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_D));
-                questions.add(new Question("¿Pregunta 13?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_A));
-                questions.add(new Question("¿Pregunta 14?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_B));
-                questions.add(new Question("¿Pregunta 15?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_C));
-                questions.add(new Question("¿Pregunta 16?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_D));
-                questions.add(new Question("¿Pregunta 17?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_A));
-                questions.add(new Question("¿Pregunta 18?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_B));
-                questions.add(new Question("¿Pregunta 19?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_C));
-                questions.add(new Question("¿Pregunta 20?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_D));
+                questions.add(new Question("A Daniel y sus amigos;¿Qué les dio Dios luego de comer solo legumbres y agua?","Sabiduría, inteligencia, belleza y fuerza","Riquezas en abundancia, gracia para con todos los hombres","Favores del palacio del rey","Conocimiento e inteligencia en toda letra y sabiduría",ANSWER_D));
+                questions.add(new Question("Dios entregó en mano de Nabucodonosor a Joacim y…","Tres partes de los utensilios de la casa de Dios","Algunos utensilios de la casa de Jehová","Parte de los utensilios de la casa de Dios","Todos los utensilios de la casa de Jehová",ANSWER_A));
+                questions.add(new Question("¿Daniel y sus amigos fueron encontrados, cuántas veces mejores que los magos y astrólogos?","3 veces mejores","7 veces mejores","10 veces mejores","12 veces mejores",ANSWER_C));
+                questions.add(new Question("¿En cual año del reinado de Nabuconodosor tuvo un sueño que turbó su espíritu?","En el 1° año de su reinado","En el 2° año de su reinado","En el 3° año de su reinado","En el 4° año de su reinado",ANSWER_B));
+                questions.add(new Question("¿Qué iba a pasar con los magos, astrólogos, encantadores y caldeos sino le revelaban al rey el sueño y su interpretación?","Serian comidos por las bestias del campo","Sus casas serian destruidas","Serian comidos por los leones del rey","Serian despedazados y sus casa convertidas en ruinas",ANSWER_D));
                 break;
             case 3:
                 questions.add(new Question("¿Pregunta 1?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_A));
@@ -471,71 +426,26 @@ public class Data {
         switch(level){
             case 0:
                 //LEVEL 1 CONQUISTADORES
-                questions.add(new Question("¿Pregunta 1?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_A));
-                questions.add(new Question("¿Pregunta 2?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_B));
-                questions.add(new Question("¿Pregunta 3?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_C));
-                questions.add(new Question("¿Pregunta 4?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_D));
-                questions.add(new Question("¿Pregunta 5?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_A));
-                questions.add(new Question("¿Pregunta 6?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_B));
-                questions.add(new Question("¿Pregunta 7?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_C));
-                questions.add(new Question("¿Pregunta 8?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_D));
-                questions.add(new Question("¿Pregunta 9?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_A));
-                questions.add(new Question("¿Pregunta 10?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_B));
-                questions.add(new Question("¿Pregunta 11?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_C));
-                questions.add(new Question("¿Pregunta 12?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_D));
-                questions.add(new Question("¿Pregunta 13?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_A));
-                questions.add(new Question("¿Pregunta 14?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_B));
-                questions.add(new Question("¿Pregunta 15?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_C));
-                questions.add(new Question("¿Pregunta 16?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_D));
-                questions.add(new Question("¿Pregunta 17?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_A));
-                questions.add(new Question("¿Pregunta 18?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_B));
-                questions.add(new Question("¿Pregunta 19?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_C));
-                questions.add(new Question("¿Pregunta 20?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_D));
+                questions.add(new Question("¿Por qué el Señor mando a oseas a casarse con una fornicaria?","Porque el pais se estaba prostituyendo, apartandose del Señor","Porque la provincia se esta prostituyendo, apartandose del Señor","Porque la ciudad se esta prostituyendo, apartandose del Señor","Porque la region se esta prostituyendo, apartandose del Señor",ANSWER_A));
+                questions.add(new Question("¿Qué dijo el Señor a Oseas al principio?","Casate, con una mujer fornicaria, y engendra hijos de fornicacion","Ve, casate con una mujer fornicaria, y engendra hijos de fornicacion","Ve, casate con una mujer fornicaria, y engendra hijas de fornicacion","Ve, casate con una mujer fornicaria, y engendra hijos e hijas de fornicacion",ANSWER_B));
+                questions.add(new Question("¿Con quien se caso y quien era su padre?","Con Gomer hijo de Diblaim","Con Gozmer hijo de Diblaim","Con Gomer hijo de Dibliam","Con Gomer hijo de Diblaim",ANSWER_D));
+                questions.add(new Question("¿De quien era hijo Joel?","Petual","Pitual","Petuel","Petue",ANSWER_C));
+                questions.add(new Question("¿Qué se desaparecio de la casa del Señor?","La ofrenda y los diezmos","La ofrenda y la libacion","La ofrenda y la liberacion","La ofrenda y la libericion",ANSWER_B));
                 break;
             case 1:
                 //LEVEL 2 CONQUISTADORES
-                questions.add(new Question("¿Pregunta 1?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_A));
-                questions.add(new Question("¿Pregunta 2?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_B));
-                questions.add(new Question("¿Pregunta 3?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_C));
-                questions.add(new Question("¿Pregunta 4?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_D));
-                questions.add(new Question("¿Pregunta 5?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_A));
-                questions.add(new Question("¿Pregunta 6?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_B));
-                questions.add(new Question("¿Pregunta 7?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_C));
-                questions.add(new Question("¿Pregunta 8?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_D));
-                questions.add(new Question("¿Pregunta 9?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_A));
-                questions.add(new Question("¿Pregunta 10?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_B));
-                questions.add(new Question("¿Pregunta 11?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_C));
-                questions.add(new Question("¿Pregunta 12?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_D));
-                questions.add(new Question("¿Pregunta 13?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_A));
-                questions.add(new Question("¿Pregunta 14?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_B));
-                questions.add(new Question("¿Pregunta 15?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_C));
-                questions.add(new Question("¿Pregunta 16?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_D));
-                questions.add(new Question("¿Pregunta 17?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_A));
-                questions.add(new Question("¿Pregunta 18?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_B));
-                questions.add(new Question("¿Pregunta 19?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_C));
-                questions.add(new Question("¿Pregunta 20?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_D));
+                questions.add(new Question("¿Quiénes debian ceñirse y lamentarse, gemid, dormir en cilicio?","Sacerdotes, ministros del altar y ministros de mi Dios","Sacerdotes, ministros del evangelio y ministros de la verdad","Sacerdotes, ministros de la iglesia y ministros de oracion ","Sacerdotes, ministros de la palabra y ministros de mi Dios",ANSWER_A));
+                questions.add(new Question("¿Qué nombre babilonicos les fueron conferidos a estos 4 jovenes?","Beltsasar, sadrec, masec y abednego","Beltsasar, sadrac, mesac y abednogo","Beltsesar, sedrac, mesac y abidnego","Beltsasar, sadrac, mesac y abednego",ANSWER_D));
+                questions.add(new Question("¿Cual debia ser la dieta de los que habian sido seleccionados para la educacion especial que le iban a dar?","Comida sabrosa y del jugo que el rey bebia","Comida real y del vino que el rey bebia","Comida rica y del agua que el rey bebia","Comida nutritiva y del te que el rey bebia",ANSWER_B));
+                questions.add(new Question("¿Cuáles eran los nombres de los hijos de Juda que ingresaron a la escuela los cuales registra la biblia?","Daniel, Ananias, Misael y Azarias","Deniel, Anenias, Misaelo y Azerias","Daniel, Ananais, Mesiel y Azarias","Daniel, Aninais, Misael y Azarios",ANSWER_A));
+                questions.add(new Question("¿De quien era hijo oseas?","Berri","Bery","Beeri","Berie",ANSWER_C));
                 break;
             case 2:
-                questions.add(new Question("¿Pregunta 1?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_A));
-                questions.add(new Question("¿Pregunta 2?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_B));
-                questions.add(new Question("¿Pregunta 3?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_C));
-                questions.add(new Question("¿Pregunta 4?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_D));
-                questions.add(new Question("¿Pregunta 5?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_A));
-                questions.add(new Question("¿Pregunta 6?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_B));
-                questions.add(new Question("¿Pregunta 7?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_C));
-                questions.add(new Question("¿Pregunta 8?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_D));
-                questions.add(new Question("¿Pregunta 9?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_A));
-                questions.add(new Question("¿Pregunta 10?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_B));
-                questions.add(new Question("¿Pregunta 11?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_C));
-                questions.add(new Question("¿Pregunta 12?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_D));
-                questions.add(new Question("¿Pregunta 13?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_A));
-                questions.add(new Question("¿Pregunta 14?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_B));
-                questions.add(new Question("¿Pregunta 15?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_C));
-                questions.add(new Question("¿Pregunta 16?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_D));
-                questions.add(new Question("¿Pregunta 17?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_A));
-                questions.add(new Question("¿Pregunta 18?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_B));
-                questions.add(new Question("¿Pregunta 19?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_C));
-                questions.add(new Question("¿Pregunta 20?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_D));
+                questions.add(new Question("En la visión del capitulo 8 de Daniel, se vio junto al río…","Eufrates","Nilo","Ulai","Tigris",ANSWER_C));
+                questions.add(new Question("¿Hasta cuantos dias el santuario seria purificado?","1390 dias de mañana","1280 dias de tardes y noches","2200 tardes y mañanas","2300 tardes y mañanas",ANSWER_D));
+                questions.add(new Question("¿Quién explicó la visión del carnero de Daniel capítulo 8?","El Angel Gabriel","Un mensajero celestial","El Arcangel Miguel","Dios",ANSWER_A));
+                questions.add(new Question("¿Qué paso con Daniel mientras el Angel hablaba con Él según el capítulo 8?","Lo hizo caer en un sueño profundo","Cayo dormido en la tierra sobre su rostro","Se turbo su espíritu","Se conmovió",ANSWER_B));
+                questions.add(new Question("La visión de las tardes y mañanas que fue dada es verdadera. Pero fue sellada para...","Despues de mucho tiempo","Un tiempo más","Para un futuro distante","El pueblo de Israel",ANSWER_C));
                 break;
             case 3:
                 questions.add(new Question("¿Pregunta 1?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_A));
@@ -920,49 +830,19 @@ public class Data {
         switch(level){
             case 0:
                 //LEVEL 1 GUIAS MAYORES
-                questions.add(new Question("¿Pregunta 1?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_A));
-                questions.add(new Question("¿Pregunta 2?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_B));
-                questions.add(new Question("¿Pregunta 3?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_C));
-                questions.add(new Question("¿Pregunta 4?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_D));
-                questions.add(new Question("¿Pregunta 5?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_A));
-                questions.add(new Question("¿Pregunta 6?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_B));
-                questions.add(new Question("¿Pregunta 7?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_C));
-                questions.add(new Question("¿Pregunta 8?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_D));
-                questions.add(new Question("¿Pregunta 9?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_A));
-                questions.add(new Question("¿Pregunta 10?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_B));
-                questions.add(new Question("¿Pregunta 11?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_C));
-                questions.add(new Question("¿Pregunta 12?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_D));
-                questions.add(new Question("¿Pregunta 13?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_A));
-                questions.add(new Question("¿Pregunta 14?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_B));
-                questions.add(new Question("¿Pregunta 15?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_C));
-                questions.add(new Question("¿Pregunta 16?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_D));
-                questions.add(new Question("¿Pregunta 17?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_A));
-                questions.add(new Question("¿Pregunta 18?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_B));
-                questions.add(new Question("¿Pregunta 19?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_C));
-                questions.add(new Question("¿Pregunta 20?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_D));
-                break;
+                questions.add(new Question("¿Por qué el Señor mando a oseas a casarse con una fornicaria?","Porque el pais se esta prostituyendo, apartandose del Señor","Porque la provincia se esta prostituyendo, apartandose del Señor","Porque la ciudad se esta prostituyendo, apartandose del Señor","Porque la region se esta prostituyendo, apartandose del Señor",ANSWER_A));
+                questions.add(new Question("¿Qué dijo el Señor a Oseas al principio?","Casate, con una mujer fornicaria, y engendra hijos de fornicacion","Ve, casate con una mujer fornicaria, y engendra hijos de fornicacion","Ve, casate con una mujer fornicaria, y engendra hijas de fornicacion","Ve, casate con una mujer fornicaria, y engendra hijos e hijas de fornicacion",ANSWER_B));
+                questions.add(new Question("¿Con quien se caso y quien era su padre?","Con Gomer hijo de Diblaim","Con Gozmer hijo de Diblaim","Con Gomer hijo de Dibliam","Con Gomer hijo de Diblaim",ANSWER_D));
+                questions.add(new Question("¿De quien era hijo Joel?","Petual","Pitual","Petuel","Petue",ANSWER_C));
+                questions.add(new Question("¿Qué se desaparecio de la casa del Señor?","La ofrenda y los diezmos","La ofrenda y la libacion","La ofrenda y la liberacion","La ofrenda y la libericion",ANSWER_B));
+                 break;
             case 1:
                 //LEVEL 2 GUIAS MAYORES
-                questions.add(new Question("¿Pregunta 1?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_A));
-                questions.add(new Question("¿Pregunta 2?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_B));
-                questions.add(new Question("¿Pregunta 3?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_C));
-                questions.add(new Question("¿Pregunta 4?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_D));
-                questions.add(new Question("¿Pregunta 5?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_A));
-                questions.add(new Question("¿Pregunta 6?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_B));
-                questions.add(new Question("¿Pregunta 7?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_C));
-                questions.add(new Question("¿Pregunta 8?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_D));
-                questions.add(new Question("¿Pregunta 9?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_A));
-                questions.add(new Question("¿Pregunta 10?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_B));
-                questions.add(new Question("¿Pregunta 11?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_C));
-                questions.add(new Question("¿Pregunta 12?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_D));
-                questions.add(new Question("¿Pregunta 13?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_A));
-                questions.add(new Question("¿Pregunta 14?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_B));
-                questions.add(new Question("¿Pregunta 15?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_C));
-                questions.add(new Question("¿Pregunta 16?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_D));
-                questions.add(new Question("¿Pregunta 17?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_A));
-                questions.add(new Question("¿Pregunta 18?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_B));
-                questions.add(new Question("¿Pregunta 19?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_C));
-                questions.add(new Question("¿Pregunta 20?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_D));
+                questions.add(new Question("¿Quiénes debian ceñirse y lamentarse, gemid, dormir en cilicio?","Sacerdotes, ministros del altar y ministros de mi Dios","Sacerdotes, ministros del evangelio y ministros de la verdad","Sacerdotes, ministros de la iglesia y ministros de oracion","Sacerdotes, ministros de la palabra y ministros de mi Dios",ANSWER_A));
+                questions.add(new Question("¿Qué nombre babilonicos les fueron conferidos a estos 4 jovenes?","Beltsasar, sadrec, masec y abednego","Beltsasar, sadrac, mesac y abednogo","Beltsesar, sedrac, mesac y abidnego","Beltsasar, sadrac, mesac y abednego",ANSWER_D));
+                questions.add(new Question("¿ Cual debia ser la dieta de los que habian sido seleccionados para la educacion especial que le iban a dar?","Comida sabrosa y del jugo que el rey bebia","Comida real y del vino que el rey bebia","Comida rica y del agua que el rey bebia","Comida nutritiva y del te que el rey bebia",ANSWER_B));
+                questions.add(new Question("¿Cuáles eran los nombres de los hijos de Juda que ingresaron a la escuela los cuales registra la biblia?","Daniel, ananias, misael y azarias","Deniel, anenias, misaelo y azerias","Daniel, ananais, mesiel y azarias","Daniel, aninais, misael y azarios",ANSWER_A));
+                questions.add(new Question("¿De quien era hijo oseas?","Berri","Bery","Beeri","Berie",ANSWER_C));
                 break;
             case 2:
                 questions.add(new Question("¿Pregunta 1?","Respueta 1","Respuesta 2","Respuesta 3","Respuesta 4",ANSWER_A));

@@ -84,9 +84,9 @@ public class QuestionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
         bundle = getIntent().getExtras();
-        mPlayerCorrect = MediaPlayer.create(getApplicationContext(), R.raw.correct_audio);
+        mPlayerCorrect = MediaPlayer.create(getApplicationContext(), R.raw.sound_correct);
         mPlayerCorrect.setAudioStreamType(AudioManager.STREAM_MUSIC);
-        mPlayerIncorrect = MediaPlayer.create(getApplicationContext(), R.raw.incorrect_audio);
+        mPlayerIncorrect = MediaPlayer.create(getApplicationContext(), R.raw.sound_incorrect);
         mPlayerIncorrect.setAudioStreamType(AudioManager.STREAM_MUSIC);
 
         answeredQuestions = new ArrayList<Integer>();

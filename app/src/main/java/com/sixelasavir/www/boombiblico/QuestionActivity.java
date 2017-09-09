@@ -165,8 +165,6 @@ public class QuestionActivity extends AppCompatActivity {
         }
     }
 
-
-
     public void loadResources() {
         valueCardView = (CardView) findViewById(R.id.value_card_view);
         valueTextView = (TextView) findViewById(R.id.value_text_view);
@@ -467,25 +465,25 @@ public class QuestionActivity extends AppCompatActivity {
     }
 
     public Dialog onCreateDialog() {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
          builder.setTitle(R.string.title_dialog_pause)
+                .setCancelable(false)
                 .setMessage(R.string.questions_pause_play)
-                .setPositiveButton(R.string.pause_yes, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Intent intent = new Intent(QuestionActivity.this, MenuActivity.class);
-                        startActivity(intent);
-                        finish();
-                    }
-                })
-                .setNegativeButton(R.string.pause_no, new DialogInterface.OnClickListener() {
+                .setPositiveButton(R.string.pause_continue, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
                         opt_pause.setVisible(true);
                         questionRelativeLayout.setVisibility(CardView.VISIBLE);
                         startClock();
-
+                    }
+                })
+                .setNegativeButton(R.string.pause_exit, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent intent = new Intent(QuestionActivity.this, MenuActivity.class);
+                        startActivity(intent);
+                        finish();
                     }
                 });
         Dialog aDialog = builder.create();

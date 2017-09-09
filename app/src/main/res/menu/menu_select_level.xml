@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <!-- "Mark Favorite", should appear as action button if possible -->
+    <item
+        android:id="@+id/action_level"
+        app:showAsAction="always"
+        android:icon="@mipmap/ic_level"
+        android:title="Niveles" >
+
+        <menu>
+            <item android:id="@+id/level_one"
+                app:showAsAction="always"
+                android:icon="@drawable/ic_uno"
+                android:title="Nivel 1"/>
+            <item android:id="@+id/level_two"
+                app:showAsAction="always"
+                android:icon="@drawable/ic_dos"
+                android:title="Nivel 2"/>
+            <item android:id="@+id/level_three"
+                app:showAsAction="always"
+                android:icon="@drawable/ic_tres"
+                android:title="Nivel 3"/>
+        </menu>
+
+    </item>
+</menu>

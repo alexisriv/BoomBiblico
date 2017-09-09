@@ -50,7 +50,7 @@
             </RelativeLayout>
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="130dp"
                 android:gravity="center"
                 android:id="@+id/question_relative_layout"
                 android:layout_below="@id/time_relative_layout">
@@ -78,6 +78,10 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
+                    android:paddingTop="3dp"
+                    android:paddingBottom="3dp"
+                    android:paddingLeft="3dp"
+                    android:paddingRight="3dp"
                     android:layout_marginBottom="15dp"
                     android:id="@+id/option_a_linear_layout"
                     android:background="@drawable/borders_answer_no_selectec">
@@ -95,6 +99,10 @@
                     android:layout_marginBottom="15dp"
                     android:layout_weight="1"
                     android:gravity="center"
+                    android:paddingTop="3dp"
+                    android:paddingBottom="3dp"
+                    android:paddingLeft="3dp"
+                    android:paddingRight="3dp"
                     android:id="@+id/option_b_linear_layout"
                     android:background="@drawable/borders_answer_no_selectec">
                     <TextView
@@ -111,6 +119,10 @@
                     android:layout_marginBottom="15dp"
                     android:layout_weight="1"
                     android:gravity="center"
+                    android:paddingTop="3dp"
+                    android:paddingBottom="3dp"
+                    android:paddingLeft="3dp"
+                    android:paddingRight="3dp"
                     android:id="@+id/option_c_linear_layout"
                     android:background="@drawable/borders_answer_no_selectec">
                     <TextView
@@ -127,6 +139,10 @@
                     android:layout_marginBottom="15dp"
                     android:layout_weight="1"
                     android:gravity="center"
+                    android:paddingTop="3dp"
+                    android:paddingBottom="3dp"
+                    android:paddingLeft="3dp"
+                    android:paddingRight="3dp"
                     android:id="@+id/option_d_linear_layout"
                     android:background="@drawable/borders_answer_no_selectec">
 

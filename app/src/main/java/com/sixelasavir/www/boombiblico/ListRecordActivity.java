@@ -140,6 +140,6 @@ public class ListRecordActivity extends AppCompatActivity implements TabLayout.O
     }
 
     public void selectedLevel(int level){
-        
+
     }
 }

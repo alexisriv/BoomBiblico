@@ -25,9 +25,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class QuestionActivity extends AppCompatActivity {
 
@@ -55,7 +53,7 @@ public class QuestionActivity extends AppCompatActivity {
     private MediaPlayer mPlayerIncorrect;
 
     private CardView valueCardView;
-    private RelativeLayout questionCardView;
+    private RelativeLayout questionRelativeLayout;
     private TextView valueTextView;
     private TextView questionTextView;
     private TextView optionATextView;
@@ -119,7 +117,7 @@ public class QuestionActivity extends AppCompatActivity {
         }
 
         this.loadResources();
-        questionCardView.setVisibility(CardView.GONE);
+        questionRelativeLayout.setVisibility(CardView.GONE);
 
         CountDownTimer countDownTimer = new CountDownTimer(5000, 1000) {
             long count = 0;
@@ -139,7 +137,7 @@ public class QuestionActivity extends AppCompatActivity {
             public void onFinish() {
                 valueCardView.setVisibility(CardView.GONE);
                 opt_pause.setVisible(true);
-                questionCardView.setVisibility(CardView.VISIBLE);
+                questionRelativeLayout.setVisibility(CardView.VISIBLE);
                 loadQuestion();
             }
         };
@@ -172,7 +170,7 @@ public class QuestionActivity extends AppCompatActivity {
     public void loadResources() {
         valueCardView = (CardView) findViewById(R.id.value_card_view);
         valueTextView = (TextView) findViewById(R.id.value_text_view);
-        questionCardView = (RelativeLayout) findViewById(R.id.question_card_view);
+        questionRelativeLayout = (RelativeLayout) findViewById(R.id.question_card_view);
         questionTextView = (TextView) findViewById(R.id.question_text_view);
         countAnswerTextView = (TextView) findViewById(R.id.count_answer);
         afterButton = (Button) findViewById(R.id.after_button);
@@ -462,7 +460,7 @@ public class QuestionActivity extends AppCompatActivity {
     }
 
     private void pausePlay() {
-        questionCardView.setVisibility(CardView.GONE);
+        questionRelativeLayout.setVisibility(CardView.GONE);
         pauseClock();
         opt_pause.setVisible(false);
         onCreateDialog().show();
@@ -486,7 +484,7 @@ public class QuestionActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
                         opt_pause.setVisible(true);
-                        questionCardView.setVisibility(CardView.VISIBLE);
+                        questionRelativeLayout.setVisibility(CardView.VISIBLE);
                         startClock();
 
                     }

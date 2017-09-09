@@ -55,12 +55,13 @@ public class LevelAdapter extends BaseAdapter {
         }
 
         ImageView imageView = (ImageView) convertView.findViewById(R.id.image_number);
-        imageView.setImageResource(number[position]);
+        imageView.setImageDrawable(context.getResources().getDrawable(number[position]));
         return convertView;
     }
 
 
     private int[] number;
+    
     private int[] numberA = {
             R.drawable.im_uno,
             R.drawable.im_dos,

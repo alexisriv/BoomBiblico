@@ -21,7 +21,9 @@
             android:name=".LevelActivity"
             android:label="@string/title_level_activity" />
         <activity android:name=".QuestionActivity" />
-        <activity android:name=".RecordActivity"></activity>
+        <activity android:name=".RecordActivity" />
+        <activity android:name=".ListRecordActivity"
+            android:theme="@style/AppThemeNoActionBar"/>
     </application>
 
 </manifest>

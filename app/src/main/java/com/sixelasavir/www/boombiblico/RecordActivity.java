@@ -99,15 +99,16 @@ public class RecordActivity extends AppCompatActivity {
                             gamerRecord.setType(bundle.getString(MenuActivity.TYPE));
                             gamerRecord.setLevel(bundle.getInt(LevelActivity.NUMBER_LEVEL));
                             gamerRecord.setNumber(bundle.getInt(LevelActivity.NUMBER_OF_QUESTIONS));
-                            gamerRecord.setRecordGamer(bundle.getString(QuestionActivity.RECORD_VALUE));
+                            gamerRecord.setRecordGamer(bundle.getInt(QuestionActivity.RECORD_VALUE));
                             gamerRecord.setTimerRecordGamer(bundle.getString(QuestionActivity.TIMER_RECORD_STRING));
 
                             gamerRecordDao.save(gamerRecord);
-                            Toast.makeText(getApplicationContext(),"Guardado", Toast.LENGTH_SHORT).show();
+                            dialog.dismiss();
+                            Toast.makeText(getApplicationContext(),R.string.save_toast, Toast.LENGTH_SHORT).show();
+                            intentNextAction = new Intent(RecordActivity.this, MenuActivity.class);
+                            startActivity(intentNextAction);
+                            finish();
 
-                            Query<GamerRecord> gamerRecordQuery = gamerRecordDao.queryBuilder().orderAsc(GamerRecordDao.Properties.NameGamer).build();
-
-                            Log.d("NUMBER", Integer.toString(gamerRecordQuery.list().size()));
                         } else {
                             Toast.makeText(getApplicationContext(),"El Nombre no puede ser nulo", Toast.LENGTH_LONG).show();
                         }

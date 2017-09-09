@@ -31,5 +31,15 @@
     <string name="record_save_no">No</string>
     <string name="name_record_text_view">Nombre:</string>
 
+    <string name="save_toast">Guardado</string>
+
+
+    <string name="name_aventureros">Aventureros</string>
+    <string name="name_conquistadores">Conquistadores</string>
+    <string name="name_guias_mayores">Guias Mayores</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 
 </resources>

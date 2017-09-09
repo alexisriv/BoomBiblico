@@ -1,9 +1,9 @@
 package com.sixelasavir.www.boombiblico.greendao.model;
 
 import org.greenrobot.greendao.annotation.Entity;
-import org.greenrobot.greendao.annotation.Id;
 import org.greenrobot.greendao.annotation.Generated;
-import org.greenrobot.greendao.annotation.Property;
+import org.greenrobot.greendao.annotation.Id;
+import org.greenrobot.greendao.annotation.Transient;
 
 /**
  * Created by alexis on 05/09/17.
@@ -13,20 +13,27 @@ import org.greenrobot.greendao.annotation.Property;
 public class GamerRecord {
 
     @Id(autoincrement = true)
-    Long id;
-    String nameGamer;
+    private Long id;
 
-    @Property(nameInDb = "VALUE_RECORD_GAMER")
-    String recordGamer;
-    String timerRecordGamer;
-    String type;
-    Integer level;
-    Integer number;
+    private String nameGamer;
+
+    private Integer recordGamer;
+
+    private String timerRecordGamer;
+
+    private String type;
+
+    private Integer level;
+
+    private Integer number;
+
+    @Transient
+    private Integer position;
 
 
 
-    @Generated(hash = 893805065)
-    public GamerRecord(Long id, String nameGamer, String recordGamer,
+    @Generated(hash = 1726250002)
+    public GamerRecord(Long id, String nameGamer, Integer recordGamer,
             String timerRecordGamer, String type, Integer level, Integer number) {
         this.id = id;
         this.nameGamer = nameGamer;
@@ -41,7 +48,7 @@ public class GamerRecord {
     public GamerRecord() {
     }
 
-
+    
 
     public Long getId() {
         return id;
@@ -59,11 +66,11 @@ public class GamerRecord {
         this.nameGamer = nameGamer;
     }
 
-    public String getRecordGamer() {
+    public Integer getRecordGamer() {
         return recordGamer;
     }
 
-    public void setRecordGamer(String recordGamer) {
+    public void setRecordGamer(Integer recordGamer) {
         this.recordGamer = recordGamer;
     }
 
@@ -97,5 +104,13 @@ public class GamerRecord {
 
     public void setNumber(Integer number) {
         this.number = number;
+    }
+
+    public Integer getPosition() {
+        return position;
+    }
+
+    public void setPosition(Integer position) {
+        this.position = position;
     }
 }

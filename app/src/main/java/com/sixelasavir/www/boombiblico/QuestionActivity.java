@@ -5,17 +5,23 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
+import android.os.Build;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.SystemClock;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -49,7 +55,7 @@ public class QuestionActivity extends AppCompatActivity {
     private MediaPlayer mPlayerIncorrect;
 
     private CardView valueCardView;
-    private LinearLayout questionCardView;
+    private RelativeLayout questionCardView;
     private TextView valueTextView;
     private TextView questionTextView;
     private TextView optionATextView;
@@ -57,18 +63,20 @@ public class QuestionActivity extends AppCompatActivity {
     private TextView optionCTextView;
     private TextView optionDTextView;
     private TextView timerRecordInit;
+    private TextView countAnswerTextView;
 
 
-    private CardView optionALinearLayout;
-    private CardView optionBLinearLayout;
-    private CardView optionCLinearLayout;
-    private CardView optionDLinearLayout;
+    private LinearLayout optionALinearLayout;
+    private LinearLayout optionBLinearLayout;
+    private LinearLayout optionCLinearLayout;
+    private LinearLayout optionDLinearLayout;
 
 
     private Button afterButton;
-    private Button pauseButton;
 
     private Bundle bundle;
+
+    private MenuItem opt_pause;
 
 
     @Override
@@ -127,6 +135,7 @@ public class QuestionActivity extends AppCompatActivity {
             @Override
             public void onFinish() {
                 valueCardView.setVisibility(CardView.GONE);
+                opt_pause.setVisible(true);
                 questionCardView.setVisibility(CardView.VISIBLE);
                 loadQuestion();
             }
@@ -134,13 +143,36 @@ public class QuestionActivity extends AppCompatActivity {
         countDownTimer.start();
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_activity_question, menu);
+        opt_pause = menu.findItem(R.id.ic_pause);
+        opt_pause.setVisible(false);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.ic_pause:{
+                pausePlay();
+                return true;
+            }
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+
+
     public void loadResources() {
         valueCardView = (CardView) findViewById(R.id.value_card_view);
         valueTextView = (TextView) findViewById(R.id.value_text_view);
-        questionCardView = (LinearLayout) findViewById(R.id.question_card_view);
+        questionCardView = (RelativeLayout) findViewById(R.id.question_card_view);
         questionTextView = (TextView) findViewById(R.id.question_text_view);
+        countAnswerTextView = (TextView) findViewById(R.id.count_answer);
         afterButton = (Button) findViewById(R.id.after_button);
-        pauseButton = (Button) findViewById(R.id.pause_button);
         afterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -157,22 +189,38 @@ public class QuestionActivity extends AppCompatActivity {
 
                             synchronized (this) {
                                 runOnUiThread(new Runnable() {
+                                    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
                                     @Override
                                     public void run() {
                                         pauseClock();
                                         afterButton.setEnabled(false);
-                                        pauseButton.setEnabled(false);
+                                        opt_pause.setEnabled(false);
                                         if (answ == Data.ANSWER_A && answ != answCorrect) {
-                                            optionALinearLayout.setBackgroundColor(getResources().getColor(R.color.colorIncorrect));
+                                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                                                optionALinearLayout.setBackground(getResources().getDrawable(R.drawable.borders_answer_incorrect));
+                                            }else {
+                                                optionALinearLayout.setBackgroundDrawable(getResources().getDrawable(R.drawable.borders_answer_incorrect));
+                                            }
                                             mPlayerIncorrect.start();
                                         } else if (answ == Data.ANSWER_B && answ != answCorrect) {
-                                            optionBLinearLayout.setBackgroundColor(getResources().getColor(R.color.colorIncorrect));
-                                            mPlayerIncorrect.start();
+                                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                                                optionBLinearLayout.setBackground(getResources().getDrawable(R.drawable.borders_answer_incorrect));
+                                            }else {
+                                                optionBLinearLayout.setBackgroundDrawable(getResources().getDrawable(R.drawable.borders_answer_incorrect));
+                                            }    mPlayerIncorrect.start();
                                         } else if (answ == Data.ANSWER_C && answ != answCorrect) {
-                                            optionCLinearLayout.setBackgroundColor(getResources().getColor(R.color.colorIncorrect));
+                                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                                                optionCLinearLayout.setBackground(getResources().getDrawable(R.drawable.borders_answer_incorrect));
+                                            }else {
+                                                optionCLinearLayout.setBackgroundDrawable(getResources().getDrawable(R.drawable.borders_answer_incorrect));
+                                            }
                                             mPlayerIncorrect.start();
                                         } else if (answ == Data.ANSWER_D && answ != answCorrect) {
-                                            optionDLinearLayout.setBackgroundColor(getResources().getColor(R.color.colorIncorrect));
+                                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                                                optionDLinearLayout.setBackground(getResources().getDrawable(R.drawable.borders_answer_incorrect));
+                                            }else {
+                                                optionDLinearLayout.setBackgroundDrawable(getResources().getDrawable(R.drawable.borders_answer_incorrect));
+                                            }
                                             mPlayerIncorrect.start();
                                         } else if (answ == answCorrect) {
                                             mPlayerCorrect.start();
@@ -183,16 +231,32 @@ public class QuestionActivity extends AppCompatActivity {
 
                                         switch (answCorrect) {
                                             case Data.ANSWER_A:
-                                                optionALinearLayout.setBackgroundColor(getResources().getColor(R.color.colorCorrect));
+                                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                                                    optionALinearLayout.setBackground(getResources().getDrawable(R.drawable.borders_answer_correct));
+                                                }else {
+                                                    optionALinearLayout.setBackgroundDrawable(getResources().getDrawable(R.drawable.borders_answer_correct));
+                                                }
                                                 break;
                                             case Data.ANSWER_B:
-                                                optionBLinearLayout.setBackgroundColor(getResources().getColor(R.color.colorCorrect));
+                                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                                                    optionBLinearLayout.setBackground(getResources().getDrawable(R.drawable.borders_answer_correct));
+                                                }else {
+                                                    optionBLinearLayout.setBackgroundDrawable(getResources().getDrawable(R.drawable.borders_answer_correct));
+                                                }
                                                 break;
                                             case Data.ANSWER_C:
-                                                optionCLinearLayout.setBackgroundColor(getResources().getColor(R.color.colorCorrect));
+                                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                                                    optionCLinearLayout.setBackground(getResources().getDrawable(R.drawable.borders_answer_correct));
+                                                }else {
+                                                    optionCLinearLayout.setBackgroundDrawable(getResources().getDrawable(R.drawable.borders_answer_correct));
+                                                }
                                                 break;
                                             case Data.ANSWER_D:
-                                                optionDLinearLayout.setBackgroundColor(getResources().getColor(R.color.colorCorrect));
+                                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                                                    optionDLinearLayout.setBackground(getResources().getDrawable(R.drawable.borders_answer_correct));
+                                                }else {
+                                                    optionDLinearLayout.setBackgroundDrawable(getResources().getDrawable(R.drawable.borders_answer_correct));
+                                                }
                                                 break;
                                         }
                                         answ = "";
@@ -208,7 +272,7 @@ public class QuestionActivity extends AppCompatActivity {
                                         optionCLinearLayout.setEnabled(true);
                                         optionDLinearLayout.setEnabled(true);
                                         afterButton.setEnabled(true);
-                                        pauseButton.setEnabled(true);
+                                        opt_pause.setEnabled(true);
                                     }
                                 });
                             }
@@ -229,47 +293,76 @@ public class QuestionActivity extends AppCompatActivity {
         optionCTextView = (TextView) findViewById(R.id.option_c_text_view);
         optionDTextView = (TextView) findViewById(R.id.option_d_text_view);
 
-        optionALinearLayout = (CardView) findViewById(R.id.option_a_linear_layout);
+        optionALinearLayout = (LinearLayout) findViewById(R.id.option_a_linear_layout);
         optionALinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                optionALinearLayout.setBackgroundColor(getResources().getColor(R.color.colorAccentDark));
-                optionBLinearLayout.setBackgroundColor(getResources().getColor(R.color.colorAccent));
-                optionCLinearLayout.setBackgroundColor(getResources().getColor(R.color.colorAccent));
-                optionDLinearLayout.setBackgroundColor(getResources().getColor(R.color.colorAccent));
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                    optionALinearLayout.setBackground(getResources().getDrawable(R.drawable.borders_answer_selectec));
+                    optionBLinearLayout.setBackground(getResources().getDrawable(R.drawable.borders_answer_no_selectec));
+                    optionCLinearLayout.setBackground(getResources().getDrawable(R.drawable.borders_answer_no_selectec));
+                    optionDLinearLayout.setBackground(getResources().getDrawable(R.drawable.borders_answer_no_selectec));
+                }else {
+                    optionALinearLayout.setBackgroundDrawable(getResources().getDrawable(R.drawable.borders_answer_selectec));
+                    optionBLinearLayout.setBackgroundDrawable(getResources().getDrawable(R.drawable.borders_answer_no_selectec));
+                    optionCLinearLayout.setBackgroundDrawable(getResources().getDrawable(R.drawable.borders_answer_no_selectec));
+                    optionDLinearLayout.setBackgroundDrawable(getResources().getDrawable(R.drawable.borders_answer_no_selectec));
+                }
+
                 answ = Data.ANSWER_A;
             }
         });
-        optionBLinearLayout = (CardView) findViewById(R.id.option_b_linear_layout);
+        optionBLinearLayout = (LinearLayout) findViewById(R.id.option_b_linear_layout);
         optionBLinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                optionALinearLayout.setBackgroundColor(getResources().getColor(R.color.colorAccent));
-                optionBLinearLayout.setBackgroundColor(getResources().getColor(R.color.colorAccentDark));
-                optionCLinearLayout.setBackgroundColor(getResources().getColor(R.color.colorAccent));
-                optionDLinearLayout.setBackgroundColor(getResources().getColor(R.color.colorAccent));
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                    optionALinearLayout.setBackground(getResources().getDrawable(R.drawable.borders_answer_no_selectec));
+                    optionBLinearLayout.setBackground(getResources().getDrawable(R.drawable.borders_answer_selectec));
+                    optionCLinearLayout.setBackground(getResources().getDrawable(R.drawable.borders_answer_no_selectec));
+                    optionDLinearLayout.setBackground(getResources().getDrawable(R.drawable.borders_answer_no_selectec));
+                }else {
+                    optionALinearLayout.setBackgroundDrawable(getResources().getDrawable(R.drawable.borders_answer_no_selectec));
+                    optionBLinearLayout.setBackgroundDrawable(getResources().getDrawable(R.drawable.borders_answer_selectec));
+                    optionCLinearLayout.setBackgroundDrawable(getResources().getDrawable(R.drawable.borders_answer_no_selectec));
+                    optionDLinearLayout.setBackgroundDrawable(getResources().getDrawable(R.drawable.borders_answer_no_selectec));
+                }
                 answ = Data.ANSWER_B;
             }
         });
-        optionCLinearLayout = (CardView) findViewById(R.id.option_c_linear_layout);
+        optionCLinearLayout = (LinearLayout) findViewById(R.id.option_c_linear_layout);
         optionCLinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                optionALinearLayout.setBackgroundColor(getResources().getColor(R.color.colorAccent));
-                optionBLinearLayout.setBackgroundColor(getResources().getColor(R.color.colorAccent));
-                optionCLinearLayout.setBackgroundColor(getResources().getColor(R.color.colorAccentDark));
-                optionDLinearLayout.setBackgroundColor(getResources().getColor(R.color.colorAccent));
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                    optionALinearLayout.setBackground(getResources().getDrawable(R.drawable.borders_answer_no_selectec));
+                    optionBLinearLayout.setBackground(getResources().getDrawable(R.drawable.borders_answer_no_selectec));
+                    optionCLinearLayout.setBackground(getResources().getDrawable(R.drawable.borders_answer_selectec));
+                    optionDLinearLayout.setBackground(getResources().getDrawable(R.drawable.borders_answer_no_selectec));
+                }else {
+                    optionALinearLayout.setBackgroundDrawable(getResources().getDrawable(R.drawable.borders_answer_no_selectec));
+                    optionBLinearLayout.setBackgroundDrawable(getResources().getDrawable(R.drawable.borders_answer_no_selectec));
+                    optionCLinearLayout.setBackgroundDrawable(getResources().getDrawable(R.drawable.borders_answer_selectec));
+                    optionDLinearLayout.setBackgroundDrawable(getResources().getDrawable(R.drawable.borders_answer_no_selectec));
+                }
                 answ = Data.ANSWER_C;
             }
         });
-        optionDLinearLayout = (CardView) findViewById(R.id.option_d_linear_layout);
+        optionDLinearLayout = (LinearLayout) findViewById(R.id.option_d_linear_layout);
         optionDLinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                optionALinearLayout.setBackgroundColor(getResources().getColor(R.color.colorAccent));
-                optionBLinearLayout.setBackgroundColor(getResources().getColor(R.color.colorAccent));
-                optionCLinearLayout.setBackgroundColor(getResources().getColor(R.color.colorAccent));
-                optionDLinearLayout.setBackgroundColor(getResources().getColor(R.color.colorAccentDark));
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                    optionALinearLayout.setBackground(getResources().getDrawable(R.drawable.borders_answer_no_selectec));
+                    optionBLinearLayout.setBackground(getResources().getDrawable(R.drawable.borders_answer_no_selectec));
+                    optionCLinearLayout.setBackground(getResources().getDrawable(R.drawable.borders_answer_no_selectec));
+                    optionDLinearLayout.setBackground(getResources().getDrawable(R.drawable.borders_answer_selectec));
+                }else {
+                    optionALinearLayout.setBackgroundDrawable(getResources().getDrawable(R.drawable.borders_answer_no_selectec));
+                    optionBLinearLayout.setBackgroundDrawable(getResources().getDrawable(R.drawable.borders_answer_no_selectec));
+                    optionCLinearLayout.setBackgroundDrawable(getResources().getDrawable(R.drawable.borders_answer_no_selectec));
+                    optionDLinearLayout.setBackgroundDrawable(getResources().getDrawable(R.drawable.borders_answer_selectec));
+                }
                 answ = Data.ANSWER_D;
             }
         });
@@ -281,16 +374,24 @@ public class QuestionActivity extends AppCompatActivity {
         if (counter <= numberQuestion) {
             int i = answeredQuestions();
             answPosition = i;
+            countAnswerTextView.setText(counter+"/"+numberQuestion);
             questionTextView.setText(questions.get(i).getQuestion());
             optionATextView.setText(questions.get(i).getOptionA());
             optionBTextView.setText(questions.get(i).getOptionB());
             optionCTextView.setText(questions.get(i).getOptionC());
             optionDTextView.setText(questions.get(i).getOptionD());
 
-            optionALinearLayout.setBackgroundColor(getResources().getColor(R.color.colorAccent));
-            optionBLinearLayout.setBackgroundColor(getResources().getColor(R.color.colorAccent));
-            optionCLinearLayout.setBackgroundColor(getResources().getColor(R.color.colorAccent));
-            optionDLinearLayout.setBackgroundColor(getResources().getColor(R.color.colorAccent));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                optionALinearLayout.setBackground(getResources().getDrawable(R.drawable.borders_answer_no_selectec));
+                optionBLinearLayout.setBackground(getResources().getDrawable(R.drawable.borders_answer_no_selectec));
+                optionCLinearLayout.setBackground(getResources().getDrawable(R.drawable.borders_answer_no_selectec));
+                optionDLinearLayout.setBackground(getResources().getDrawable(R.drawable.borders_answer_no_selectec));
+            }else {
+                optionALinearLayout.setBackgroundDrawable(getResources().getDrawable(R.drawable.borders_answer_no_selectec));
+                optionBLinearLayout.setBackgroundDrawable(getResources().getDrawable(R.drawable.borders_answer_no_selectec));
+                optionCLinearLayout.setBackgroundDrawable(getResources().getDrawable(R.drawable.borders_answer_no_selectec));
+                optionDLinearLayout.setBackgroundDrawable(getResources().getDrawable(R.drawable.borders_answer_no_selectec));
+            }
             counter++;
             startClock();
         } else {
@@ -322,7 +423,6 @@ public class QuestionActivity extends AppCompatActivity {
         }
 
     }
-
 
     private Runnable updateTimerThread = new Runnable() {
 
@@ -358,16 +458,18 @@ public class QuestionActivity extends AppCompatActivity {
         customHandler.postDelayed(updateTimerThread, 0);
     }
 
-    public void pausePlay(View v) {
+    private void pausePlay() {
         questionCardView.setVisibility(CardView.GONE);
         pauseClock();
+        opt_pause.setVisible(false);
         onCreateDialog().show();
     }
 
     public Dialog onCreateDialog() {
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(R.string.title_dialog_pause)
+         builder.setTitle(R.string.title_dialog_pause)
                 .setMessage(R.string.questions_pause_play)
+
                 .setPositiveButton(R.string.pause_yes, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -380,12 +482,15 @@ public class QuestionActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
+                        opt_pause.setVisible(true);
                         questionCardView.setVisibility(CardView.VISIBLE);
                         startClock();
 
                     }
                 });
-        return builder.create();
+        Dialog aDialog = builder.create();
+        aDialog.setCanceledOnTouchOutside(false);
+        return aDialog;
     }
 
 }

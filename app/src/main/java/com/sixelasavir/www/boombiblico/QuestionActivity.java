@@ -42,6 +42,7 @@ public class QuestionActivity extends AppCompatActivity {
     private int answPosition;
     private String stringTime;
     private int numberAnsw = 0;
+    private boolean onBackQuestion = false;
 
     private Handler customHandler = new Handler();
     long timeInMilliseconds = 0L;
@@ -138,6 +139,7 @@ public class QuestionActivity extends AppCompatActivity {
                 valueCardView.setVisibility(CardView.GONE);
                 opt_pause.setVisible(true);
                 questionRelativeLayout.setVisibility(CardView.VISIBLE);
+                onBackQuestion = true;
                 loadQuestion();
             }
         };
@@ -165,7 +167,14 @@ public class QuestionActivity extends AppCompatActivity {
         }
     }
 
-
+    @Override
+    public void onBackPressed() {
+        if (onBackQuestion) {
+            pausePlay();
+        }else {
+            super.onBackPressed();
+        }
+    }
 
     public void loadResources() {
         valueCardView = (CardView) findViewById(R.id.value_card_view);
@@ -467,26 +476,25 @@ public class QuestionActivity extends AppCompatActivity {
     }
 
     public Dialog onCreateDialog() {
-        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
          builder.setTitle(R.string.title_dialog_pause)
+                .setCancelable(false)
                 .setMessage(R.string.questions_pause_play)
-
-                .setPositiveButton(R.string.pause_yes, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Intent intent = new Intent(QuestionActivity.this, MenuActivity.class);
-                        startActivity(intent);
-                        finish();
-                    }
-                })
-                .setNegativeButton(R.string.pause_no, new DialogInterface.OnClickListener() {
+                .setPositiveButton(R.string.pause_continue, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
                         opt_pause.setVisible(true);
                         questionRelativeLayout.setVisibility(CardView.VISIBLE);
                         startClock();
-
+                    }
+                })
+                .setNegativeButton(R.string.pause_exit, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent intent = new Intent(QuestionActivity.this, MenuActivity.class);
+                        startActivity(intent);
+                        finish();
                     }
                 });
         Dialog aDialog = builder.create();

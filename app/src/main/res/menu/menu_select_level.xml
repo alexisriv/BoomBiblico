@@ -7,7 +7,7 @@
     <item
         android:id="@+id/action_level"
         app:showAsAction="always"
-        android:icon="@mipmap/ic_level"
+        android:icon="@drawable/ic_levels"
         android:title="Niveles" >
 
         <menu>

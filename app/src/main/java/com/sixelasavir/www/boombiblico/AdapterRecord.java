@@ -36,7 +36,23 @@ public class AdapterRecord extends RecyclerView.Adapter<AdapterRecord.ViewHolder
     public void onBindViewHolder(AdapterRecord.ViewHolder holder, int position) {
         GamerRecord gamerRecord = this.gamerRecords.get(position);
 
-        holder.principalImageView.setImageResource(R.mipmap.ic_medal_one);
+        if (gamerRecord.getPosition() != Integer.valueOf(0)) {
+            if (gamerRecord.getPosition() == Integer.valueOf(1)) {
+                holder.principalImageView.setImageResource(R.mipmap.ic_medal_one);
+            } else if (gamerRecord.getPosition() == Integer.valueOf(2)) {
+                holder.principalImageView.setImageResource(R.mipmap.ic_medal_two);
+            } else if (gamerRecord.getPosition() == Integer.valueOf(3)) {
+                holder.principalImageView.setImageResource(R.mipmap.ic_medal_three);
+            }
+        } else {
+            if (gamerRecord.getType().equals(MenuActivity.TYPE_PLAYER_AVENTURERO))
+                holder.principalImageView.setImageResource(R.mipmap.ic_aventureros);
+            if (gamerRecord.getType().equals(MenuActivity.TYPE_PLAYER_CONQUISTADOR))
+                holder.principalImageView.setImageResource(R.mipmap.ic_conquistadores);
+            if (gamerRecord.getType().equals(MenuActivity.TYPE_PLAYER_GUIA_MAYOR))
+                holder.principalImageView.setImageResource(R.mipmap.ic_guias_mayores);
+        }
+
         holder.nameTextView.setText(gamerRecord.getNameGamer());
         holder.timerTextView.setText(gamerRecord.getTimerRecordGamer());
         int numberQuestion = 0;

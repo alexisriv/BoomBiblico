@@ -2,6 +2,7 @@ package com.sixelasavir.www.boombiblico;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -19,6 +20,7 @@ import com.sixelasavir.www.boombiblico.greendao.model.DaoSession;
 import com.sixelasavir.www.boombiblico.greendao.model.GamerRecord;
 import com.sixelasavir.www.boombiblico.greendao.model.GamerRecordDao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ListRecordActivity extends AppCompatActivity implements TabLayout.OnTabSelectedListener, ListRecordFragment.OnFragmentInteractionListener {
@@ -30,6 +32,10 @@ public class ListRecordActivity extends AppCompatActivity implements TabLayout.O
     List<GamerRecord> gamerRecordsAventureros;
     List<GamerRecord> gamerRecordsConquistadores;
     List<GamerRecord> gamerRecordsGuiasMayores;
+
+    private static final String LEVEL = "level";
+    private int level = 0;
+    Bundle bundle;
 
 
     @Override
@@ -55,19 +61,66 @@ public class ListRecordActivity extends AppCompatActivity implements TabLayout.O
 
         tabLayout.setOnTabSelectedListener(this);
 
-        gamerRecordsAventureros = gamerRecordDao.queryBuilder().where(GamerRecordDao.Properties.Type.eq(MenuActivity.TYPE_PLAYER_AVENTURERO), GamerRecordDao.Properties.Level.eq(0)).orderDesc(GamerRecordDao.Properties.RecordGamer).list();
-        gamerRecordsConquistadores = gamerRecordDao.queryBuilder().where(GamerRecordDao.Properties.Type.eq(MenuActivity.TYPE_PLAYER_CONQUISTADOR), GamerRecordDao.Properties.Level.eq(0)).orderDesc(GamerRecordDao.Properties.RecordGamer).list();
-        gamerRecordsGuiasMayores = gamerRecordDao.queryBuilder().where(GamerRecordDao.Properties.Type.eq(MenuActivity.TYPE_PLAYER_GUIA_MAYOR), GamerRecordDao.Properties.Level.eq(0)).orderDesc(GamerRecordDao.Properties.RecordGamer).list();
+        Bundle bundleAux = getIntent().getExtras();
+
+        if (savedInstanceState != null) {
+            bundle = savedInstanceState;
+            if (bundle.getInt(LEVEL) == 1) {
+                level = 1;
+                gamerRecordsAventureros = gamerRecordDao.queryBuilder().where(GamerRecordDao.Properties.Type.eq(MenuActivity.TYPE_PLAYER_AVENTURERO), GamerRecordDao.Properties.Level.eq(2)).orderDesc(GamerRecordDao.Properties.RecordGamer).list();
+                gamerRecordsConquistadores = gamerRecordDao.queryBuilder().where(GamerRecordDao.Properties.Type.eq(MenuActivity.TYPE_PLAYER_CONQUISTADOR), GamerRecordDao.Properties.Level.eq(2)).orderDesc(GamerRecordDao.Properties.RecordGamer).list();
+                gamerRecordsGuiasMayores = gamerRecordDao.queryBuilder().where(GamerRecordDao.Properties.Type.eq(MenuActivity.TYPE_PLAYER_GUIA_MAYOR), GamerRecordDao.Properties.Level.eq(2)).orderDesc(GamerRecordDao.Properties.RecordGamer).list();
+            } else if (bundle.getInt(LEVEL) == 2) {
+                level = 2;
+                gamerRecordsAventureros = gamerRecordDao.queryBuilder().where(GamerRecordDao.Properties.Type.eq(MenuActivity.TYPE_PLAYER_AVENTURERO), GamerRecordDao.Properties.Level.eq(1)).orderDesc(GamerRecordDao.Properties.RecordGamer).list();
+                gamerRecordsConquistadores = gamerRecordDao.queryBuilder().where(GamerRecordDao.Properties.Type.eq(MenuActivity.TYPE_PLAYER_CONQUISTADOR), GamerRecordDao.Properties.Level.eq(1)).orderDesc(GamerRecordDao.Properties.RecordGamer).list();
+                gamerRecordsGuiasMayores = gamerRecordDao.queryBuilder().where(GamerRecordDao.Properties.Type.eq(MenuActivity.TYPE_PLAYER_GUIA_MAYOR), GamerRecordDao.Properties.Level.eq(1)).orderDesc(GamerRecordDao.Properties.RecordGamer).list();
+            } else {
+                level = 0;
+                gamerRecordsAventureros = gamerRecordDao.queryBuilder().where(GamerRecordDao.Properties.Type.eq(MenuActivity.TYPE_PLAYER_AVENTURERO), GamerRecordDao.Properties.Level.eq(0)).orderDesc(GamerRecordDao.Properties.RecordGamer).list();
+                gamerRecordsConquistadores = gamerRecordDao.queryBuilder().where(GamerRecordDao.Properties.Type.eq(MenuActivity.TYPE_PLAYER_CONQUISTADOR), GamerRecordDao.Properties.Level.eq(0)).orderDesc(GamerRecordDao.Properties.RecordGamer).list();
+                gamerRecordsGuiasMayores = gamerRecordDao.queryBuilder().where(GamerRecordDao.Properties.Type.eq(MenuActivity.TYPE_PLAYER_GUIA_MAYOR), GamerRecordDao.Properties.Level.eq(0)).orderDesc(GamerRecordDao.Properties.RecordGamer).list();
+            }
+        } else if (bundleAux != null) {
+            if (bundleAux.getInt(LEVEL) == 1) {
+                level = 1;
+                gamerRecordsAventureros = gamerRecordDao.queryBuilder().where(GamerRecordDao.Properties.Type.eq(MenuActivity.TYPE_PLAYER_AVENTURERO), GamerRecordDao.Properties.Level.eq(1)).orderDesc(GamerRecordDao.Properties.RecordGamer).list();
+                gamerRecordsConquistadores = gamerRecordDao.queryBuilder().where(GamerRecordDao.Properties.Type.eq(MenuActivity.TYPE_PLAYER_CONQUISTADOR), GamerRecordDao.Properties.Level.eq(1)).orderDesc(GamerRecordDao.Properties.RecordGamer).list();
+                gamerRecordsGuiasMayores = gamerRecordDao.queryBuilder().where(GamerRecordDao.Properties.Type.eq(MenuActivity.TYPE_PLAYER_GUIA_MAYOR), GamerRecordDao.Properties.Level.eq(1)).orderDesc(GamerRecordDao.Properties.RecordGamer).list();
+            } else if (bundleAux.getInt(LEVEL) == 2) {
+                level = 2;
+                gamerRecordsAventureros = gamerRecordDao.queryBuilder().where(GamerRecordDao.Properties.Type.eq(MenuActivity.TYPE_PLAYER_AVENTURERO), GamerRecordDao.Properties.Level.eq(2)).orderDesc(GamerRecordDao.Properties.RecordGamer).list();
+                gamerRecordsConquistadores = gamerRecordDao.queryBuilder().where(GamerRecordDao.Properties.Type.eq(MenuActivity.TYPE_PLAYER_CONQUISTADOR), GamerRecordDao.Properties.Level.eq(2)).orderDesc(GamerRecordDao.Properties.RecordGamer).list();
+                gamerRecordsGuiasMayores = gamerRecordDao.queryBuilder().where(GamerRecordDao.Properties.Type.eq(MenuActivity.TYPE_PLAYER_GUIA_MAYOR), GamerRecordDao.Properties.Level.eq(2)).orderDesc(GamerRecordDao.Properties.RecordGamer).list();
+            } else {
+                level = 0;
+                gamerRecordsAventureros = gamerRecordDao.queryBuilder().where(GamerRecordDao.Properties.Type.eq(MenuActivity.TYPE_PLAYER_AVENTURERO), GamerRecordDao.Properties.Level.eq(0)).orderDesc(GamerRecordDao.Properties.RecordGamer).list();
+                gamerRecordsConquistadores = gamerRecordDao.queryBuilder().where(GamerRecordDao.Properties.Type.eq(MenuActivity.TYPE_PLAYER_CONQUISTADOR), GamerRecordDao.Properties.Level.eq(0)).orderDesc(GamerRecordDao.Properties.RecordGamer).list();
+                gamerRecordsGuiasMayores = gamerRecordDao.queryBuilder().where(GamerRecordDao.Properties.Type.eq(MenuActivity.TYPE_PLAYER_GUIA_MAYOR), GamerRecordDao.Properties.Level.eq(0)).orderDesc(GamerRecordDao.Properties.RecordGamer).list();
+            }
+        } else {
+            level = 0;
+            gamerRecordsAventureros = gamerRecordDao.queryBuilder().where(GamerRecordDao.Properties.Type.eq(MenuActivity.TYPE_PLAYER_AVENTURERO), GamerRecordDao.Properties.Level.eq(0)).orderDesc(GamerRecordDao.Properties.RecordGamer).list();
+            gamerRecordsConquistadores = gamerRecordDao.queryBuilder().where(GamerRecordDao.Properties.Type.eq(MenuActivity.TYPE_PLAYER_CONQUISTADOR), GamerRecordDao.Properties.Level.eq(0)).orderDesc(GamerRecordDao.Properties.RecordGamer).list();
+            gamerRecordsGuiasMayores = gamerRecordDao.queryBuilder().where(GamerRecordDao.Properties.Type.eq(MenuActivity.TYPE_PLAYER_GUIA_MAYOR), GamerRecordDao.Properties.Level.eq(0)).orderDesc(GamerRecordDao.Properties.RecordGamer).list();
+
+        }
     }
 
     @Override
     public void onTabSelected(TabLayout.Tab tab) {
         viewPager.setCurrentItem(tab.getPosition());
+        if (tab.getPosition() == 0)
+            Toast.makeText(getApplicationContext(), R.string.name_aventureros, Toast.LENGTH_SHORT).show();
+        else if (tab.getPosition() == 1)
+            Toast.makeText(getApplicationContext(), R.string.name_conquistadores, Toast.LENGTH_SHORT).show();
+        else
+            Toast.makeText(getApplicationContext(), R.string.name_guias_mayores, Toast.LENGTH_SHORT).show();
+
     }
 
     @Override
     public void onTabUnselected(TabLayout.Tab tab) {
-        Toast.makeText(getApplicationContext(), "onTabUnselected".concat(Integer.toString(tab.getPosition())), Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -89,13 +142,13 @@ public class ListRecordActivity extends AppCompatActivity implements TabLayout.O
             ListRecordFragment listRecordFragment;
             switch (position) {
                 case 0:
-                    listRecordFragment = ListRecordFragment.newInstance(gamerRecordsAventureros);
+                    listRecordFragment = ListRecordFragment.newInstance(orderPosition(gamerRecordsAventureros));
                     return listRecordFragment;
                 case 1:
-                    listRecordFragment = ListRecordFragment.newInstance(gamerRecordsConquistadores);
+                    listRecordFragment = ListRecordFragment.newInstance(orderPosition(gamerRecordsConquistadores));
                     return listRecordFragment;
                 case 2:
-                    listRecordFragment = ListRecordFragment.newInstance(gamerRecordsGuiasMayores);
+                    listRecordFragment = ListRecordFragment.newInstance(orderPosition(gamerRecordsGuiasMayores));
                     return listRecordFragment;
                 default:
                     return null;
@@ -120,26 +173,104 @@ public class ListRecordActivity extends AppCompatActivity implements TabLayout.O
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.level_one:
-                gamerRecordsAventureros = gamerRecordDao.queryBuilder().where(GamerRecordDao.Properties.Type.eq(MenuActivity.TYPE_PLAYER_AVENTURERO), GamerRecordDao.Properties.Level.eq(0)).orderDesc(GamerRecordDao.Properties.RecordGamer).list();
-                gamerRecordsConquistadores = gamerRecordDao.queryBuilder().where(GamerRecordDao.Properties.Type.eq(MenuActivity.TYPE_PLAYER_CONQUISTADOR), GamerRecordDao.Properties.Level.eq(0)).orderDesc(GamerRecordDao.Properties.RecordGamer).list();
-                gamerRecordsGuiasMayores = gamerRecordDao.queryBuilder().where(GamerRecordDao.Properties.Type.eq(MenuActivity.TYPE_PLAYER_GUIA_MAYOR), GamerRecordDao.Properties.Level.eq(0)).orderDesc(GamerRecordDao.Properties.RecordGamer).list();
+                newLevel(0);
                 return true;
             case R.id.level_two:
-                gamerRecordsAventureros = gamerRecordDao.queryBuilder().where(GamerRecordDao.Properties.Type.eq(MenuActivity.TYPE_PLAYER_AVENTURERO), GamerRecordDao.Properties.Level.eq(1)).orderDesc(GamerRecordDao.Properties.RecordGamer).list();
-                gamerRecordsConquistadores = gamerRecordDao.queryBuilder().where(GamerRecordDao.Properties.Type.eq(MenuActivity.TYPE_PLAYER_CONQUISTADOR), GamerRecordDao.Properties.Level.eq(1)).orderDesc(GamerRecordDao.Properties.RecordGamer).list();
-                gamerRecordsGuiasMayores = gamerRecordDao.queryBuilder().where(GamerRecordDao.Properties.Type.eq(MenuActivity.TYPE_PLAYER_GUIA_MAYOR), GamerRecordDao.Properties.Level.eq(1)).orderDesc(GamerRecordDao.Properties.RecordGamer).list();
+                newLevel(1);
                 return true;
             case R.id.level_three:
-                gamerRecordsAventureros = gamerRecordDao.queryBuilder().where(GamerRecordDao.Properties.Type.eq(MenuActivity.TYPE_PLAYER_AVENTURERO), GamerRecordDao.Properties.Level.eq(2)).orderDesc(GamerRecordDao.Properties.RecordGamer).list();
-                gamerRecordsConquistadores = gamerRecordDao.queryBuilder().where(GamerRecordDao.Properties.Type.eq(MenuActivity.TYPE_PLAYER_CONQUISTADOR), GamerRecordDao.Properties.Level.eq(2)).orderDesc(GamerRecordDao.Properties.RecordGamer).list();
-                gamerRecordsGuiasMayores = gamerRecordDao.queryBuilder().where(GamerRecordDao.Properties.Type.eq(MenuActivity.TYPE_PLAYER_GUIA_MAYOR), GamerRecordDao.Properties.Level.eq(2)).orderDesc(GamerRecordDao.Properties.RecordGamer).list();
+                newLevel(2);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
 
-    public void selectedLevel(int level){
+    public void newLevel(int level) {
+        Intent intent = new Intent(this, ListRecordActivity.class);
 
+        intent.putExtra(LEVEL, level);
+        startActivity(intent);
+        finish();
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        outState.putInt(LEVEL, level);
+        super.onSaveInstanceState(outState);
+    }
+
+
+    public List<GamerRecord> orderPosition(List<GamerRecord> grs) {
+        GamerRecord grAux;
+
+        String split1[];
+        String split2[];
+        for(GamerRecord record: grs){
+            record.setPosition(0);
+        }
+        for (int i = 0; i < grs.size(); i++) {
+            for (int j = i + 1; j < grs.size(); j++) {
+                split1 = grs.get(i).getTimerRecordGamer().split(":");
+                split2 = grs.get(j).getTimerRecordGamer().split(":");
+
+                if (grs.get(i).getRecordGamer() == grs.get(j).getRecordGamer()) {
+                    if (Integer.valueOf(split1[0]) > Integer.valueOf(split2[0])) {
+                        grAux = grs.get(i);
+                        grs.set(i, grs.get(j));
+                        grs.set(j, grAux);
+
+                    } else if (Integer.valueOf(split1[0]) == Integer.valueOf(split2[0])) {
+                        if (Integer.valueOf(split1[1]) > Integer.valueOf(split2[1])) {
+                            grAux = grs.get(i);
+                            grs.set(i, grs.get(j));
+                            grs.set(j, grAux);
+
+                        } else if (Integer.valueOf(split1[1]) == Integer.valueOf(split2[1])) {
+                            if (Integer.valueOf(split1[2]) > Integer.valueOf(split2[2])) {
+                                grAux = grs.get(i);
+                                grs.set(i, grs.get(j));
+                                grs.set(j, grAux);
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        if (grs.size() != 0) {
+            int p = 0;
+            int rgAux = grs.get(0).getRecordGamer();
+            String trgAux = grs.get(0).getTimerRecordGamer();
+            for (int i = 0; i < grs.size(); i++) {
+                if (rgAux == grs.get(i).getRecordGamer() && trgAux == grs.get(i).getTimerRecordGamer()) {
+                    grs.get(i).setPosition(1);
+                } else {
+                    p = i;
+                    break;
+                }
+            }
+            rgAux = grs.get(p).getRecordGamer();
+            trgAux = grs.get(p).getTimerRecordGamer();
+            for (int i = p; i < grs.size(); i++) {
+                if (rgAux == grs.get(i).getRecordGamer() && trgAux == grs.get(i).getTimerRecordGamer() && grs.get(i).getPosition() != Integer.valueOf(1)) {
+                    grs.get(i).setPosition(2);
+                } else {
+                    p = i;
+                    break;
+                }
+            }
+            rgAux = grs.get(p).getRecordGamer();
+            trgAux = grs.get(p).getTimerRecordGamer();
+            for (int i = p; i < grs.size(); i++) {
+                if (rgAux == grs.get(i).getRecordGamer() && trgAux == grs.get(i).getTimerRecordGamer() && grs.get(i).getPosition() != Integer.valueOf(1) && grs.get(i).getPosition() != Integer.valueOf(2)) {
+                    grs.get(i).setPosition(3);
+                } else {
+                    break;
+                }
+            }
+        }
+
+        return grs;
     }
 }

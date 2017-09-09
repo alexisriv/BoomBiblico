@@ -42,6 +42,7 @@ public class QuestionActivity extends AppCompatActivity {
     private int answPosition;
     private String stringTime;
     private int numberAnsw = 0;
+    private boolean onBackQuestion = false;
 
     private Handler customHandler = new Handler();
     long timeInMilliseconds = 0L;
@@ -138,6 +139,7 @@ public class QuestionActivity extends AppCompatActivity {
                 valueCardView.setVisibility(CardView.GONE);
                 opt_pause.setVisible(true);
                 questionRelativeLayout.setVisibility(CardView.VISIBLE);
+                onBackQuestion = true;
                 loadQuestion();
             }
         };
@@ -162,6 +164,15 @@ public class QuestionActivity extends AppCompatActivity {
             }
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (onBackQuestion) {
+            pausePlay();
+        }else {
+            super.onBackPressed();
         }
     }
 

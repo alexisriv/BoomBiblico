@@ -114,7 +114,7 @@ public class QuestionActivity extends AppCompatActivity {
                 numberQuestion = 15;
                 break;
             default:
-                numberQuestion = 7;
+                numberQuestion = 20;
                 break;
         }
 
@@ -412,7 +412,7 @@ public class QuestionActivity extends AppCompatActivity {
     }
 
     public int randomPositionQuestion() {
-        return (int) (Math.random() * 20);
+        return (int) (Math.random() * questions.size());
     }
 
     private int answeredQuestions() {

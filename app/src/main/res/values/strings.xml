@@ -20,13 +20,13 @@
     <string name="title_timer_record_init">Tiempo:</string>
     <string name="count_answer">6/10</string>
 
-    <string name="title_dialog_pause">Advertencia</string>
-    <string name="questions_pause_play">"¿Salir del Juego?</string>
+    <string name="title_dialog_pause">¿Desea Salir del Juego?</string>
+    <string name="questions_pause_play">Salir</string>
     <string name="pause_yes">Si</string>
     <string name="pause_no">No</string>
 
-    <string name="title_dialog_record_save">Advertencia</string>
-    <string name="questions_record_save">¿Desea Guardar el Récord?</string>
+    <string name="title_dialog_record_save">¿Desea Guardar el Puntaje?</string>
+    <string name="questions_record_save">Guardar</string>
     <string name="record_save_yes">Si</string>
     <string name="record_save_no">No</string>
     <string name="name_record_text_view">Nombre:</string>

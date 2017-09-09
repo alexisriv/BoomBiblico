@@ -30,7 +30,7 @@ public class LevelActivity extends AppCompatActivity {
         this.loadResources();
         intent = getIntent();
 
-        levelGridView.setAdapter(new LevelAdapter(this));
+        levelGridView.setAdapter(new LevelAdapter(this, intent.getStringExtra(MenuActivity.TYPE)));
         levelGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -40,7 +40,7 @@ public class LevelActivity extends AppCompatActivity {
                     intentQuestion = new Intent(LevelActivity.this,QuestionActivity.class);
                     intentQuestion.putExtra(MenuActivity.TYPE, intent.getStringExtra(MenuActivity.TYPE));
                     intentQuestion.putExtra(NUMBER_LEVEL, position);
-                    intentQuestion.putExtra(NUMBER_OF_QUESTIONS, 3);
+                    intentQuestion.putExtra(NUMBER_OF_QUESTIONS, 0);
                     startActivity(intentQuestion);
                     LevelActivity.this.finish();
                 }

@@ -16,9 +16,19 @@ public class LevelAdapter extends BaseAdapter {
 
     private Context context;
 
-
-    public LevelAdapter(Context context) {
+    public LevelAdapter(Context context, String type) {
         this.context = context;
+        switch (type){
+            case MenuActivity.TYPE_PLAYER_AVENTURERO:
+                number = numberA;
+                break;
+            case MenuActivity.TYPE_PLAYER_CONQUISTADOR:
+                number = numberC;
+                break;
+            case MenuActivity.TYPE_PLAYER_GUIA_MAYOR:
+                number = numberGM;
+                break;
+        }
     }
 
     @Override
@@ -49,11 +59,23 @@ public class LevelAdapter extends BaseAdapter {
         return convertView;
     }
 
-    private int[] number = {
+
+    private int[] number;
+    private int[] numberA = {
             R.drawable.im_uno,
             R.drawable.im_dos,
-            R.drawable.im_tres,
-            R.drawable.im_cuatro
+            R.drawable.im_tres
+    };
+
+    private int[] numberC = {
+            R.drawable.im_uno,
+            R.drawable.im_dos,
+            R.drawable.im_tres
+    };
+
+    private int[] numberGM = {
+            R.drawable.im_uno,
+            R.drawable.im_dos
     };
 
 }

@@ -13,7 +13,6 @@ import com.sixelasavir.www.boombiblico.greendao.model.DaoSession;
 import com.sixelasavir.www.boombiblico.greendao.model.GamerRecord;
 import com.sixelasavir.www.boombiblico.greendao.model.GamerRecordDao;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ListRecordActivity extends AppCompatActivity implements TabLayout.OnTabSelectedListener, ListRecordFragment.OnFragmentInteractionListener {
@@ -77,15 +76,15 @@ public class ListRecordActivity extends AppCompatActivity implements TabLayout.O
             ListRecordFragment listRecordFragment;
             switch (position) {
                 case 0:
-                    List<GamerRecord> gamerRecordsAventureros = gamerRecordDao.queryBuilder().where(GamerRecordDao.Properties.Type.eq(MenuActivity.TYPE_PLAYER_AVENTURERO)).orderAsc(GamerRecordDao.Properties.RecordGamer).list();
+                    List<GamerRecord> gamerRecordsAventureros = gamerRecordDao.queryBuilder().where(GamerRecordDao.Properties.Type.eq(MenuActivity.TYPE_PLAYER_AVENTURERO)).orderDesc(GamerRecordDao.Properties.RecordGamer).list();
                     listRecordFragment = ListRecordFragment.newInstance(gamerRecordsAventureros);
                     return listRecordFragment;
                 case 1:
-                    List<GamerRecord> gamerRecordsConquistadores = gamerRecordDao.queryBuilder().where(GamerRecordDao.Properties.Type.eq(MenuActivity.TYPE_PLAYER_CONQUISTADOR)).orderAsc(GamerRecordDao.Properties.RecordGamer).list();
+                    List<GamerRecord> gamerRecordsConquistadores = gamerRecordDao.queryBuilder().where(GamerRecordDao.Properties.Type.eq(MenuActivity.TYPE_PLAYER_CONQUISTADOR)).orderDesc(GamerRecordDao.Properties.RecordGamer).list();
                     listRecordFragment = ListRecordFragment.newInstance(gamerRecordsConquistadores);
                     return listRecordFragment;
                 case 2:
-                    List<GamerRecord> gamerRecordsGuiasMayores = gamerRecordDao.queryBuilder().where(GamerRecordDao.Properties.Type.eq(MenuActivity.TYPE_PLAYER_GUIA_MAYOR)).orderAsc(GamerRecordDao.Properties.RecordGamer).list();
+                    List<GamerRecord> gamerRecordsGuiasMayores = gamerRecordDao.queryBuilder().where(GamerRecordDao.Properties.Type.eq(MenuActivity.TYPE_PLAYER_GUIA_MAYOR)).orderDesc(GamerRecordDao.Properties.RecordGamer).list();
                     listRecordFragment = ListRecordFragment.newInstance(gamerRecordsGuiasMayores);
                     return listRecordFragment;
                 default:

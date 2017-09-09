@@ -470,7 +470,6 @@ public class QuestionActivity extends AppCompatActivity {
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
          builder.setTitle(R.string.title_dialog_pause)
                 .setMessage(R.string.questions_pause_play)
-
                 .setPositiveButton(R.string.pause_yes, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {

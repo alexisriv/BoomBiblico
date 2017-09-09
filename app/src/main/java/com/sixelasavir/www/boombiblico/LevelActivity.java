@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatDelegate;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
@@ -30,6 +31,7 @@ public class LevelActivity extends AppCompatActivity {
         this.loadResources();
         intent = getIntent();
 
+        AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
         levelGridView.setAdapter(new LevelAdapter(this, intent.getStringExtra(MenuActivity.TYPE)));
         levelGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

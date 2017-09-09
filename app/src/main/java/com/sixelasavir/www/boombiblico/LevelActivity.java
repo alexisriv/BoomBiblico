@@ -40,7 +40,7 @@ public class LevelActivity extends AppCompatActivity {
                     intentQuestion = new Intent(LevelActivity.this,QuestionActivity.class);
                     intentQuestion.putExtra(MenuActivity.TYPE, intent.getStringExtra(MenuActivity.TYPE));
                     intentQuestion.putExtra(NUMBER_LEVEL, position);
-                    intentQuestion.putExtra(NUMBER_OF_QUESTIONS, 1);
+                    intentQuestion.putExtra(NUMBER_OF_QUESTIONS, 3);
                     startActivity(intentQuestion);
                     LevelActivity.this.finish();
                 }

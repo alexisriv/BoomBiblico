@@ -3,6 +3,7 @@ package com.sixelasavir.www.boombiblico.greendao.model;
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Generated;
 import org.greenrobot.greendao.annotation.Id;
+import org.greenrobot.greendao.annotation.Transient;
 
 /**
  * Created by alexis on 05/09/17.
@@ -12,15 +13,22 @@ import org.greenrobot.greendao.annotation.Id;
 public class GamerRecord {
 
     @Id(autoincrement = true)
-    Long id;
-    String nameGamer;
-    Integer recordGamer;
-    String timerRecordGamer;
-    String type;
-    Integer level;
-    Integer number;
+    private Long id;
 
+    private String nameGamer;
 
+    private Integer recordGamer;
+
+    private String timerRecordGamer;
+
+    private String type;
+
+    private Integer level;
+
+    private Integer number;
+
+    @Transient
+    private Integer position;
 
 
 
@@ -40,9 +48,7 @@ public class GamerRecord {
     public GamerRecord() {
     }
 
-
-
-
+    
 
     public Long getId() {
         return id;
@@ -98,5 +104,13 @@ public class GamerRecord {
 
     public void setNumber(Integer number) {
         this.number = number;
+    }
+
+    public Integer getPosition() {
+        return position;
+    }
+
+    public void setPosition(Integer position) {
+        this.position = position;
     }
 }

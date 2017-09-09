@@ -105,6 +105,9 @@ public class QuestionActivity extends AppCompatActivity {
             case 2:
                 numberQuestion = 15;
                 break;
+            default:
+                numberQuestion = 7;
+                break;
         }
 
         this.loadResources();

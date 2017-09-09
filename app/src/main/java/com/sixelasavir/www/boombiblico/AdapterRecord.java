@@ -39,7 +39,7 @@ public class AdapterRecord extends RecyclerView.Adapter<AdapterRecord.ViewHolder
         holder.principalImageView.setImageResource(R.mipmap.ic_medal_one);
         holder.nameTextView.setText(gamerRecord.getNameGamer());
         holder.timerTextView.setText(gamerRecord.getTimerRecordGamer());
-        holder.numberTextView.setText(gamerRecord.getRecordGamer().toString().concat("/10"));
+        holder.numberTextView.setText(gamerRecord.getRecordGamer().toString().concat("/7"));
 
     }
 

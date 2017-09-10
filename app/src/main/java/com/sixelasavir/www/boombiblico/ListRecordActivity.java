@@ -110,13 +110,14 @@ public class ListRecordActivity extends AppCompatActivity implements TabLayout.O
     @Override
     public void onTabSelected(TabLayout.Tab tab) {
         viewPager.setCurrentItem(tab.getPosition());
+        /*
         if (tab.getPosition() == 0)
             Toast.makeText(getApplicationContext(), R.string.name_aventureros, Toast.LENGTH_SHORT).show();
         else if (tab.getPosition() == 1)
             Toast.makeText(getApplicationContext(), R.string.name_conquistadores, Toast.LENGTH_SHORT).show();
         else
             Toast.makeText(getApplicationContext(), R.string.name_guias_mayores, Toast.LENGTH_SHORT).show();
-
+        */
     }
 
     @Override
@@ -206,7 +207,7 @@ public class ListRecordActivity extends AppCompatActivity implements TabLayout.O
 
         String split1[];
         String split2[];
-        for(GamerRecord record: grs){
+        for (GamerRecord record : grs) {
             record.setPosition(0);
         }
         for (int i = 0; i < grs.size(); i++) {

@@ -167,13 +167,6 @@ public class ListRecordActivity extends AppCompatActivity implements TabLayout.O
         finish();
     }
 
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        outState.putInt(LEVEL, level);
-        super.onSaveInstanceState(outState);
-    }
-
-
     public List<GamerRecord> orderPosition(List<GamerRecord> grs) {
         GamerRecord grAux;
 

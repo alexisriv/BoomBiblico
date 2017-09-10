@@ -9,5 +9,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="5dp"
         android:hint="@string/name_record_text_view"
-        android:id="@+id/name_record_save"/>
+        android:id="@+id/name_record_save"
+        android:inputType="text"/>
 </RelativeLayout>

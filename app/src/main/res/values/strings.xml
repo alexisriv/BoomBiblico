@@ -18,15 +18,15 @@
 
     <string name="timer_record_init">00:00:00</string>
     <string name="title_timer_record_init">Tiempo:</string>
-    <string name="count_answer">6/10</string>
+    <string name="count_answer">0/0</string>
 
     <string name="title_dialog_pause">Pausa</string>
     <string name="questions_pause_play">¿Desea salir o continuar el juego?</string>
     <string name="pause_exit">Salir</string>
     <string name="pause_continue">Continuar</string>
 
-    <string name="title_dialog_record_save">¿Desea Guardar el Puntaje?</string>
-    <string name="questions_record_save">Guardar</string>
+    <string name="title_dialog_record_save">Guardar</string>
+    <string name="questions_record_save">¿Desea Guardar el Puntaje?</string>
     <string name="record_save_yes">Si</string>
     <string name="record_save_no">No</string>
     <string name="name_record_text_view">Nombre:</string>

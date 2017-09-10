@@ -1,15 +1,11 @@
 package com.sixelasavir.www.boombiblico;
 
 import android.app.Dialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.support.v7.widget.CardView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
@@ -20,16 +16,9 @@ import com.sixelasavir.www.boombiblico.greendao.model.DaoSession;
 import com.sixelasavir.www.boombiblico.greendao.model.GamerRecord;
 import com.sixelasavir.www.boombiblico.greendao.model.GamerRecordDao;
 
-import org.greenrobot.greendao.query.Query;
-
-import java.util.HashSet;
-import java.util.Set;
-
 public class RecordActivity extends AppCompatActivity {
 
-    private TextView titleRecordTextView;
     private TextView numberRecordTextView;
-    private TextView titleTimeRecordTextView;
     private TextView timeRecordTextView;
     private Intent intentNextAction;
     private Bundle bundle;
@@ -49,9 +38,7 @@ public class RecordActivity extends AppCompatActivity {
 
 
     private void loadResources() {
-        titleRecordTextView = (TextView) findViewById(R.id.title_record_text_view);
         numberRecordTextView = (TextView) findViewById(R.id.number_record_text_view);
-        titleTimeRecordTextView = (TextView) findViewById(R.id.title_time_record_text_view);
         timeRecordTextView = (TextView) findViewById(R.id.time_record_text_view);
     }
 
@@ -65,8 +52,6 @@ public class RecordActivity extends AppCompatActivity {
     }
 
     public void exitRecord(View v) {
-        intentNextAction = new Intent(this, MenuActivity.class);
-        startActivity(intentNextAction);
         finish();
     }
 
@@ -105,8 +90,6 @@ public class RecordActivity extends AppCompatActivity {
                             gamerRecordDao.save(gamerRecord);
                             dialog.dismiss();
                             Toast.makeText(getApplicationContext(),R.string.save_toast, Toast.LENGTH_SHORT).show();
-                            intentNextAction = new Intent(RecordActivity.this, MenuActivity.class);
-                            startActivity(intentNextAction);
                             finish();
 
                         } else {

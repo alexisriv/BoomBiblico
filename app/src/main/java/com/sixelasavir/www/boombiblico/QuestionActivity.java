@@ -492,8 +492,6 @@ public class QuestionActivity extends AppCompatActivity {
                 .setNegativeButton(R.string.pause_exit, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Intent intent = new Intent(QuestionActivity.this, MenuActivity.class);
-                        startActivity(intent);
                         finish();
                     }
                 });

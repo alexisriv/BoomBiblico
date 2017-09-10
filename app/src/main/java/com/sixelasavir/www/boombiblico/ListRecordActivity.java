@@ -2,7 +2,6 @@ package com.sixelasavir.www.boombiblico;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -10,17 +9,14 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.sixelasavir.www.boombiblico.greendao.model.DaoSession;
 import com.sixelasavir.www.boombiblico.greendao.model.GamerRecord;
 import com.sixelasavir.www.boombiblico.greendao.model.GamerRecordDao;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ListRecordActivity extends AppCompatActivity implements TabLayout.OnTabSelectedListener, ListRecordFragment.OnFragmentInteractionListener {
@@ -33,6 +29,7 @@ public class ListRecordActivity extends AppCompatActivity implements TabLayout.O
     List<GamerRecord> gamerRecordsConquistadores;
     List<GamerRecord> gamerRecordsGuiasMayores;
 
+    private static final String TAB = "tab";
     private static final String LEVEL = "level";
     private int level = 0;
     Bundle bundle;
@@ -62,26 +59,10 @@ public class ListRecordActivity extends AppCompatActivity implements TabLayout.O
         tabLayout.setOnTabSelectedListener(this);
 
         Bundle bundleAux = getIntent().getExtras();
+        if (bundleAux != null) {
+            TabLayout.Tab tab = tabLayout.getTabAt(bundleAux.getInt(TAB));
+            tab.select();
 
-        if (savedInstanceState != null) {
-            bundle = savedInstanceState;
-            if (bundle.getInt(LEVEL) == 1) {
-                level = 1;
-                gamerRecordsAventureros = gamerRecordDao.queryBuilder().where(GamerRecordDao.Properties.Type.eq(MenuActivity.TYPE_PLAYER_AVENTURERO), GamerRecordDao.Properties.Level.eq(2)).orderDesc(GamerRecordDao.Properties.RecordGamer).list();
-                gamerRecordsConquistadores = gamerRecordDao.queryBuilder().where(GamerRecordDao.Properties.Type.eq(MenuActivity.TYPE_PLAYER_CONQUISTADOR), GamerRecordDao.Properties.Level.eq(2)).orderDesc(GamerRecordDao.Properties.RecordGamer).list();
-                gamerRecordsGuiasMayores = gamerRecordDao.queryBuilder().where(GamerRecordDao.Properties.Type.eq(MenuActivity.TYPE_PLAYER_GUIA_MAYOR), GamerRecordDao.Properties.Level.eq(2)).orderDesc(GamerRecordDao.Properties.RecordGamer).list();
-            } else if (bundle.getInt(LEVEL) == 2) {
-                level = 2;
-                gamerRecordsAventureros = gamerRecordDao.queryBuilder().where(GamerRecordDao.Properties.Type.eq(MenuActivity.TYPE_PLAYER_AVENTURERO), GamerRecordDao.Properties.Level.eq(1)).orderDesc(GamerRecordDao.Properties.RecordGamer).list();
-                gamerRecordsConquistadores = gamerRecordDao.queryBuilder().where(GamerRecordDao.Properties.Type.eq(MenuActivity.TYPE_PLAYER_CONQUISTADOR), GamerRecordDao.Properties.Level.eq(1)).orderDesc(GamerRecordDao.Properties.RecordGamer).list();
-                gamerRecordsGuiasMayores = gamerRecordDao.queryBuilder().where(GamerRecordDao.Properties.Type.eq(MenuActivity.TYPE_PLAYER_GUIA_MAYOR), GamerRecordDao.Properties.Level.eq(1)).orderDesc(GamerRecordDao.Properties.RecordGamer).list();
-            } else {
-                level = 0;
-                gamerRecordsAventureros = gamerRecordDao.queryBuilder().where(GamerRecordDao.Properties.Type.eq(MenuActivity.TYPE_PLAYER_AVENTURERO), GamerRecordDao.Properties.Level.eq(0)).orderDesc(GamerRecordDao.Properties.RecordGamer).list();
-                gamerRecordsConquistadores = gamerRecordDao.queryBuilder().where(GamerRecordDao.Properties.Type.eq(MenuActivity.TYPE_PLAYER_CONQUISTADOR), GamerRecordDao.Properties.Level.eq(0)).orderDesc(GamerRecordDao.Properties.RecordGamer).list();
-                gamerRecordsGuiasMayores = gamerRecordDao.queryBuilder().where(GamerRecordDao.Properties.Type.eq(MenuActivity.TYPE_PLAYER_GUIA_MAYOR), GamerRecordDao.Properties.Level.eq(0)).orderDesc(GamerRecordDao.Properties.RecordGamer).list();
-            }
-        } else if (bundleAux != null) {
             if (bundleAux.getInt(LEVEL) == 1) {
                 level = 1;
                 gamerRecordsAventureros = gamerRecordDao.queryBuilder().where(GamerRecordDao.Properties.Type.eq(MenuActivity.TYPE_PLAYER_AVENTURERO), GamerRecordDao.Properties.Level.eq(1)).orderDesc(GamerRecordDao.Properties.RecordGamer).list();
@@ -110,14 +91,6 @@ public class ListRecordActivity extends AppCompatActivity implements TabLayout.O
     @Override
     public void onTabSelected(TabLayout.Tab tab) {
         viewPager.setCurrentItem(tab.getPosition());
-        /*
-        if (tab.getPosition() == 0)
-            Toast.makeText(getApplicationContext(), R.string.name_aventureros, Toast.LENGTH_SHORT).show();
-        else if (tab.getPosition() == 1)
-            Toast.makeText(getApplicationContext(), R.string.name_conquistadores, Toast.LENGTH_SHORT).show();
-        else
-            Toast.makeText(getApplicationContext(), R.string.name_guias_mayores, Toast.LENGTH_SHORT).show();
-        */
     }
 
     @Override
@@ -126,7 +99,6 @@ public class ListRecordActivity extends AppCompatActivity implements TabLayout.O
 
     @Override
     public void onTabReselected(TabLayout.Tab tab) {
-        Log.d("onTabReselected", Integer.toString(tab.getPosition()));
     }
 
     public class Pager extends FragmentStatePagerAdapter {
@@ -174,22 +146,22 @@ public class ListRecordActivity extends AppCompatActivity implements TabLayout.O
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.level_one:
-                newLevel(0);
+                newLevel(tabLayout.getSelectedTabPosition(), 0);
                 return true;
             case R.id.level_two:
-                newLevel(1);
+                newLevel(tabLayout.getSelectedTabPosition(), 1);
                 return true;
             case R.id.level_three:
-                newLevel(2);
+                newLevel(tabLayout.getSelectedTabPosition(), 2);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
 
-    public void newLevel(int level) {
+    public void newLevel(int tab, int level) {
         Intent intent = new Intent(this, ListRecordActivity.class);
-
+        intent.putExtra(TAB, tab);
         intent.putExtra(LEVEL, level);
         startActivity(intent);
         finish();
